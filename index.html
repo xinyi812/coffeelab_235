@@ -14,7 +14,16 @@
         <ul class="nav-links">
             <li><a href="index.html">首頁</a></li>
             <li><a href="#encyclopedia">咖啡百科</a></li>
-            <li><a href="#cafes">採訪分頁</a></li>
+            
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">採訪分頁 ▾</a>
+                <div class="dropdown-content">
+                    <a href="pages/qianhua.html">鉛花咖啡 (Qianhua)</a>
+                    <a href="pages/slowsoul.html">慢靈魂咖啡 (Slow Soul)</a>
+                    <a href="pages/cafe-three.html">其他店家預留</a>
+                </div>
+            </li>
+            
             <li><a href="#game">互動遊戲</a></li>
         </ul>
     </nav>
@@ -62,8 +71,29 @@
 
     <section id="game" class="container" style="text-align: center; margin-top: 50px;">
         <h2 class="section-title">互動遊戲體驗</h2>
-        <div style="background: #e0dcd5; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 15px; border: 2px dashed #b5ada2;">
+        <div style="background: #e0dcd5; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 15px; border: 2px dashed #b5ada2;">
             <p>遊戲嵌入位置 (等隊友做完後放入)</p>
+        </div>
+    </section>
+
+    <section id="team" class="container">
+        <h2 class="section-title">團隊成員</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>組員 1</h3>
+                <p>負責：網頁開發 / 視覺美化</p>
+            </div>
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>組員 2</h3>
+                <p>負責：遊戲設計 / 程式開發</p>
+            </div>
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>組員 3</h3>
+                <p>負責：店家採訪 / 資料蒐集</p>
+            </div>
         </div>
     </section>
 
