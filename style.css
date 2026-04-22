@@ -120,6 +120,7 @@ nav {
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px; 
     margin-top: 20px;
+    align-items: start;
 }
 
 /* --- 關鍵修正：讓彈窗不要佔用網格位置 --- */
@@ -356,7 +357,8 @@ footer {
 }
 /* 輪播容器樣式 */
 .carousel {
-    height: 250px;
+    width: 100%;
+    height: 250px; /* 強制高度 */
     overflow: hidden;
     position: relative;
 }
@@ -398,14 +400,14 @@ footer {
 }
 /* 彈窗背景層 */
 .modal {
-    display: none; 
-    position: fixed;
-    z-index: 2000;
+    display: none; /* 預設完全不顯示 */
+    position: fixed; /* 脫離網頁流，浮在空中 */
+    z-index: 9999;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
     backdrop-filter: blur(8px); /* 背景模糊特效 */
 }
 
