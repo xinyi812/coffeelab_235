@@ -19,7 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     /* 這裡把 10% 改成 5%，讓 Logo 更靠左邊，內容更寬 */
-    padding: 10px 5%; 
+    padding: 8px 5%; 
     background: rgba(247, 243, 240, 0.95);
     position: sticky;
     top: 0;
