@@ -31,6 +31,7 @@ nav {
     font-weight: bold;
     letter-spacing: 2px;
     color: #8c7e6d;
+    text-decoration: none; /* 加上這行，移除超連結底線 */
     
     /* 關鍵：讓圖片跟文字水平排列並垂直居中 */
     display: flex;
@@ -39,9 +40,18 @@ nav {
 }
 
 .logo-img {
-    height: 40px; /* 這裡調整 Logo 的高度，寬度會自動等比例縮放 */
+    height: 60px; /* 這裡調整 Logo 的高度，寬度會自動等比例縮放 */
     width: auto;
     object-fit: contain;
+    transition: transform 0.3s ease; /* 額外加個小特效：滑鼠移上去會微動 */
+}
+/* 順便加個小驚喜：滑鼠移到 Logo 上會稍微放大一點點 */
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+.logo:hover {
+    color: #8c7e6d; /* 維持原色，或想變淡一點可以改成 #b5ada2 */
+    text-decoration: none;
 }
 
 .nav-links {
