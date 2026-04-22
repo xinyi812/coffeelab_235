@@ -30,7 +30,18 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #8c7e6d; /* 讓 Logo 更有層次 */
+    color: #8c7e6d;
+    
+    /* 關鍵：讓圖片跟文字水平排列並垂直居中 */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 圖片與文字之間的間距 */
+}
+
+.logo-img {
+    height: 40px; /* 這裡調整 Logo 的高度，寬度會自動等比例縮放 */
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links {
