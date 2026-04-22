@@ -115,10 +115,24 @@ nav {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    /* 強制設定為三欄，每欄平分寬度 */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* 方格之間的間距 */
+    margin-top: 20px;
 }
 
+/* 為了確保在平板或手機上不會擠成一團，可以加入這段媒體查詢 */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板改為一排兩格 */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr); /* 手機改為一排一格 */
+    }
+}
 .card {
     background: #fff;
     border-radius: 12px;
