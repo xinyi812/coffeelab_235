@@ -42,47 +42,316 @@
     <h2 class="section-title">咖啡處理法圖鑑</h2>
     <div class="grid">
         
-        <div class="card">
+        <div class="card" onclick="openModal('modal1')">
             <div class="card-tag">Natural</div>
             <div class="carousel">
                 <div class="carousel-inner">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=400');"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=400');"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=400');"></div>
+                    <div class="slide" style="background-image: url('img/natural_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/natural_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/natural_03.jpg');"></div>
                 </div>
             </div>
             <div class="card-info">
                 <h3>日曬處理法</h3>
-                <p>將咖啡果實完整曝曬於陽光下，吸收大地的精華，風味層次豐富且帶有濃郁果香。</p>
+                <p>點擊探索詳細風味與職人手法...</p>
             </div>
         </div>
 
-        <div class="card">
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1', event)">&times;</span>
+                <h2>日曬處理法 (Natural)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>將採收後的咖啡果實直接舖在曬場上，利用陽光自然乾燥 2-4 週。</p>
+                    <p><strong>風味特色：</strong>濃郁、甜度極高，帶有強烈的水果香氣與酒般的醇厚感。</p>
+                    <p><strong>適合焙度：</strong>中淺焙，能引發出最佳的熱帶水果風味。</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal2')">
             <div class="card-tag">Washed</div>
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521500289131-080fd5923bc3?auto=format&fit=crop&q=80&w=400');"></div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/washed_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/washed_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/washed_03.jpg');"></div>
+                </div>
+            </div>
             <div class="card-info">
                 <h3>水洗處理法</h3>
-                <p>透過發酵與大量清水洗淨果肉，口感乾淨明亮，能精準呈現該品種的酸度與花香。</p>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2', event)">&times;</span>
+                <h2>水洗處理法 (Washed)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>去除果皮果肉後，在發酵槽中浸泡並洗淨殘餘果膠。</p>
+                    <p><strong>風味特色：</strong>口感乾淨、酸質明亮、帶有精緻的花香。</p>
+                </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openModal('modal3')">
             <div class="card-tag">Honey</div>
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400');"></div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/honey_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/honey_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/honey_03.jpg');"></div>
+                </div>
+            </div>
             <div class="card-info">
                 <h3>蜜處理法</h3>
-                <p>介於日曬與水洗之間，保留部分果膠進行乾燥，使咖啡帶有蜜一般的甜感與醇厚度。</p>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3', event)">&times;</span>
+                <h2>蜜處理法 (Honey)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('modal4')">
+            <div class="card-tag">Extended</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/extended_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/extended_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/extended_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>酒香日曬法</h3>
+                <p>點擊查看詳細風味...</p>
             </div>
         </div>
 
-        <div class="card placeholder-card">
-            <div class="card-info" style="text-align: center; padding-top: 100px;">
-                <h3 style="color: #b5ada2;">即將上線...</h3>
-                <p>更多處理法探索中</p>
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal4', event)">&times;</span>
+                <h2>酒香日曬法 (Extended)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>去除果皮果肉後，在發酵槽中浸泡並洗淨殘餘果膠。</p>
+                    <p><strong>風味特色：</strong>口感乾淨、酸質明亮、帶有精緻的花香。</p>
+                </div>
             </div>
         </div>
 
-    </div>
+        <div class="card" onclick="openModal('modal5')">
+            <div class="card-tag">Pupled</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/pupled_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/pupled_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/pupled_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>去果皮日曬法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal5', event)">&times;</span>
+                <h2>去果皮日曬法 (Pupled)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal6')">
+            <div class="card-tag">Hulling</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/hulling_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/hulling_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/hulling_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>濕剝法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal6', event)">&times;</span>
+                <h2>濕剝法 (Hulling)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal7')">
+            <div class="card-tag">Kenyan</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/kenyan_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/kenyan_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/kenyan_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>肯亞式水洗法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal7" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal7', event)">&times;</span>
+                <h2>肯亞式水洗法 (Kenyan)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal8')">
+            <div class="card-tag">Ferhoney</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/ferhoney_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/ferhoney_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/ferhoney_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>百香蜜處理法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal8', event)">&times;</span>
+                <h2>百香蜜處理法 (Ferhoney)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal9')">
+            <div class="card-tag">Raisin</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/raisin_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/raisin_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/raisin_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>葡萄乾蜜處理法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal9" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal9', event)">&times;</span>
+                <h2>葡萄乾蜜處理法 (Raisin)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal10')">
+            <div class="card-tag">Anaerobic</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/anaerobic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/anaerobic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/anaerobic_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>厭氧發酵</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal10" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal10', event)">&times;</span>
+                <h2>厭氧發酵 (Anaerobic)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal11')">
+            <div class="card-tag">Carbonic</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/carbonic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/carbonic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/carbonic_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>二氧化碳浸漬法</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal11" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal11', event)">&times;</span>
+                <h2>二氧化碳浸漬法 (Carbonic)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal12')">
+            <div class="card-tag">Lactic</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('img/lactic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/lactic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('img/lactic_03.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>乳酸發酵</h3>
+                <p>點擊查看詳細風味...</p>
+            </div>
+        </div>
+
+        <div id="modal12" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal12', event)">&times;</span>
+                <h2>乳酸發酵 (lactic)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留不同比例的果膠進行曝曬，分為白蜜、黃蜜、紅蜜、黑蜜。</p>
+                    <p><strong>風味特色：</strong>酸度適中，甜度比水洗更高，質地醇厚。</p>
+                </div>
+            </div>
+        </div>
 </section>
 
     <section id="game" class="container" style="text-align: center; margin-top: 50px;">
@@ -98,6 +367,30 @@
     <footer>
         <p>&copy; 2026 啡行實驗室</p>
     </footer>
+
+
+    <script>
+    // 打開視窗
+    function openModal(id) {
+        document.getElementById(id).style.display = "block";
+        document.body.style.overflow = "hidden"; // 鎖定背景不讓滾動
+    }
+
+    // 關閉視窗
+    function closeModal(id, event) {
+        if (event) event.stopPropagation(); // 阻止點擊事件冒泡
+        document.getElementById(id).style.display = "none";
+        document.body.style.overflow = "auto"; // 恢復背景滾動
+    }
+
+    // 點擊背景關閉
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
 
 </body>
 </html>
