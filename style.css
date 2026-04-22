@@ -113,33 +113,45 @@ nav {
     color: #8c7e6d;
 }
 
+/* 百科 12 宮格排版 */
 .grid {
     display: grid;
-    /* 強制設定為三欄，每欄平分寬度 */
+    /* 強制設定為三欄 */
     grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; /* 方格之間的間距 */
+    gap: 30px; 
     margin-top: 20px;
 }
 
-/* 為了確保在平板或手機上不會擠成一團，可以加入這段媒體查詢 */
+/* --- 關鍵修正：讓彈窗不要佔用網格位置 --- */
+.grid > .modal {
+    display: none; /* 預設隱藏 */
+    grid-column: auto; /* 不佔用網格欄位 */
+    position: fixed; /* 讓它浮起來，不影響地面上的排版 */
+}
+
+/* 為了確保在平板或手機上不會擠成一團 */
 @media (max-width: 992px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr); /* 平板改為一排兩格 */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: repeat(1, 1fr); /* 手機改為一排一格 */
+        grid-template-columns: repeat(1, 1fr); 
     }
 }
+
+/* 卡片設計 */
 .card {
+    width: 100%; /* 確保卡片填滿網格欄位 */
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer; /* 加上這行，讓人家知道可以點擊 */
 }
 
 .card:hover {
@@ -147,7 +159,8 @@ nav {
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-.card-img {
+/* 圖片/輪播區塊高度固定 */
+.card-img, .carousel {
     height: 250px;
     background-size: cover;
     background-position: center;
@@ -163,6 +176,7 @@ nav {
     border-radius: 20px;
     font-size: 0.7rem;
     letter-spacing: 1px;
+    z-index: 5; /* 確保標籤在輪播圖之上 */
 }
 
 .card-info {
