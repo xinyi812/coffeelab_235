@@ -13,12 +13,13 @@ body {
     line-height: 1.8;
 }
 
-/* 導覽列 */
+/* 導覽列設定 */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    /* 這裡把 10% 改成 5%，讓 Logo 更靠左邊，內容更寬 */
+    padding: 10px 5%; 
     background: rgba(247, 243, 240, 0.95);
     position: sticky;
     top: 0;
@@ -26,32 +27,35 @@ nav {
     border-bottom: 1px solid #e0dcd5;
 }
 
+/* Logo 連結區域：解決底線與對齊問題 */
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: 2px;
     color: #8c7e6d;
-    text-decoration: none; /* 加上這行，移除超連結底線 */
-    
-    /* 關鍵：讓圖片跟文字水平排列並垂直居中 */
+    /* !important 確保底線在任何分頁都不會出現 */
+    text-decoration: none !important; 
     display: flex;
     align-items: center;
-    gap: 10px; /* 圖片與文字之間的間距 */
+    gap: 12px;
 }
 
+/* Logo 圖片大小與特效 */
 .logo-img {
-    height: 60px; /* 這裡調整 Logo 的高度，寬度會自動等比例縮放 */
+    height: 55px; /* 你可以根據喜好調整這個高度 (50-60px) */
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease; /* 額外加個小特效：滑鼠移上去會微動 */
+    transition: transform 0.3s ease;
 }
-/* 順便加個小驚喜：滑鼠移到 Logo 上會稍微放大一點點 */
+
+/* 滑鼠移上去的反應 */
 .logo:hover .logo-img {
     transform: scale(1.05);
 }
+
 .logo:hover {
-    color: #8c7e6d; /* 維持原色，或想變淡一點可以改成 #b5ada2 */
-    text-decoration: none;
+    color: #8c7e6d;
+    text-decoration: none !important;
 }
 
 .nav-links {
