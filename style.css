@@ -301,3 +301,45 @@ footer {
 .placeholder-card:hover {
     transform: none; /* 預留卡片不需要浮起來 */
 }
+/* 輪播容器樣式 */
+.carousel {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* 三張圖所以 300% */
+    height: 100%;
+    animation: slideAnimation 9s infinite; /* 9秒循環一次 */
+}
+
+.slide {
+    width: 33.33%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 輪播動畫邏輯 */
+@keyframes slideAnimation {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(0); }
+    33% { transform: translateX(-33.33%); }
+    63% { transform: translateX(-33.33%); }
+    66% { transform: translateX(-66.66%); }
+    96% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+/* 預留空格卡片的特殊樣式 */
+.placeholder-card {
+    border: 2px dashed #e0dcd5;
+    background: transparent;
+    box-shadow: none;
+}
+.placeholder-card:hover {
+    transform: none;
+    box-shadow: none;
+}
