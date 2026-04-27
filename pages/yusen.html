@@ -45,6 +45,7 @@
 
     <section class="container">
         <div class="shop-content">
+            
             <div class="shop-article">
                 <h2 style="color: #8c7e6d; margin-bottom: 20px;">職人專訪：洗淨鉛華後的醇厚</h2>
                 <p>這裡是放入採訪內容的地方。你可以描述店長的經營理念、對咖啡豆的堅持，以及店內的特色氛圍...</p>
@@ -62,6 +63,7 @@
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
                 <a href="#" style="color: #8c7e6d; text-decoration: none;">Instagram 🔗</a>
             </div>
+
         </div>
     </section>
 
@@ -90,6 +92,7 @@
             });
         }
 
+        // 點擊其他區域自動關閉選單
         navLinks.addEventListener('click', function(e) {
             if (e.target.closest('.dropdown')) return;
             if (mobileMenu.classList.contains('active')) {

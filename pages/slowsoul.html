@@ -45,11 +45,11 @@
     <section class="container">
         <div class="shop-content">
             <div class="shop-article">
-                <h2 style="color: #8c7e6d; margin-bottom: 20px;">職人專訪：洗淨鉛華後的醇厚</h2>
-                <p>這裡是放入採訪內容的地方。你可以描述店長的經營理念、對咖啡豆的堅持，以及店內的特色氛圍...</p>
+                <h2 style="color: #8c7e6d; margin-bottom: 20px;">職人專訪：生活中的慢節奏</h2>
+                <p>這裡是放入採訪內容的地方。描述慢靈魂咖啡店長如何透過手沖，將時間凝固在最美好的一刻...</p>
                 <br>
                 <div style="background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid #8c7e6d;">
-                    <p><i>「咖啡不只是飲品，它是生活的一種慢節奏。」—— 店長語錄預留區</i></p>
+                    <p><i>「每一杯咖啡都有自己的靈魂，慢下來，才能聽見它的聲音。」—— 店長語錄預留區</i></p>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
 
     <script>
         /* =========================================
-           1. 手機版漢堡選單 & 職人咖啡廳收合控制
+           1. 手機版導覽列與下拉控制
            ========================================= */
         const mobileMenu = document.querySelector('#mobile-menu');
         const navLinks = document.querySelector('.nav-links');
@@ -89,6 +89,7 @@
                 });
             }
 
+            // 點擊選單外部關閉
             navLinks.addEventListener('click', function(e) {
                 if (e.target.closest('.dropdown')) return;
                 if (mobileMenu.classList.contains('active')) {
@@ -99,7 +100,7 @@
         }
 
         /* =========================================
-           2. 咖啡處理法彈窗控制 (保留功能)
+           2. Modal 控制 (備用)
            ========================================= */
         function openModal(id) {
             const modal = document.getElementById(id);

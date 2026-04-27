@@ -71,7 +71,7 @@
         const navLinks = document.querySelector('.nav-links');
         const dropdown = document.querySelector('.dropdown');
 
-        // 1. 漢堡選單開關
+        // 漢堡選單開關
         if (mobileMenu) {
             mobileMenu.addEventListener('click', function() {
                 this.classList.toggle('active');
@@ -79,7 +79,7 @@
             });
         }
 
-        // 2. 職人咖啡廳展開/收合 (針對手機版)
+        // 手機版下拉菜單點擊控制
         if (dropdown) {
             dropdown.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
@@ -89,7 +89,7 @@
             });
         }
 
-        // 3. 點選連結後自動關閉選單
+        // 點選連結後關閉側邊欄
         navLinks.addEventListener('click', function(e) {
             if (e.target.closest('.dropdown')) return;
             if (mobileMenu.classList.contains('active')) {

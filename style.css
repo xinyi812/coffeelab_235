@@ -484,7 +484,29 @@ footer {
 }
 
 /* ============================================================
-   3. 手機版響應式設計 (Mobile - 小於 768px)
+   1. 職人咖啡廳分頁 - 電腦版排版 (預設)
+   ============================================================ */
+.shop-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.shop-article {
+    flex: 2;
+}
+
+.shop-info {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ============================================================
+   2. 手機版響應式設計 (Mobile - 小於 768px)
    ============================================================ */
 @media screen and (max-width: 768px) {
     /* --- 導覽列與側邊選單 --- */
@@ -520,9 +542,9 @@ footer {
         width: 100%;
     }
 
-    /* --- 職人咖啡廳收合選單 --- */
+    /* --- 職人咖啡廳收合控制 --- */
     .dropdown-content {
-        display: none !important; /* 預設完全關閉 */
+        display: none !important; 
         position: static !important;
         background: rgba(140, 126, 109, 0.05) !important;
         width: 100% !important;
@@ -530,7 +552,7 @@ footer {
     }
 
     .dropdown.show .dropdown-content {
-        display: block !important; /* JS 切換時開啟 */
+        display: block !important; /* JS 點擊後切換此類別 */
     }
 
     .dropbtn {
@@ -554,9 +576,9 @@ footer {
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* --- 咖啡廳分頁排版 (解決擠在一起的問題) --- */
+    /* --- 內容區塊強力修正 (上下堆疊) --- */
     .container > div, .shop-content {
-        display: block !important; /* 強制取消並排 */
+        display: block !important; /* 強制變為區塊排列 */
         width: 100% !important;
         padding: 0 10px !important;
     }
@@ -567,11 +589,11 @@ footer {
         margin-bottom: 30px !important;
         padding: 20px !important;
         box-sizing: border-box !important;
-        flex: none !important; /* 殺掉 flex 的比例控制 */
+        flex: none !important;
     }
 
     .hero {
-        height: auto !important;
+        height: 30vh !important;
         min-height: 200px !important;
         padding: 60px 20px !important;
     }
