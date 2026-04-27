@@ -506,7 +506,32 @@ footer {
 }
 
 /* ============================================================
-   2. 手機版響應式設計 (Mobile - 小於 768px)
+   1. 電腦版基礎樣式 (預設樣式)
+   ============================================================ */
+.shop-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.shop-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.shop-sidebar {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ============================================================
+   2. 手機版響應式設計 (Mobile - 小於 768px) 
+   務必放在電腦版樣式下方，確保蓋掉上面的設定
    ============================================================ */
 @media screen and (max-width: 768px) {
     /* --- 導覽列與側邊選單 --- */
@@ -536,60 +561,36 @@ footer {
 
     .nav-links.active { left: 0; }
 
-    .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-        width: 100%;
-    }
-
     /* --- 職人咖啡廳收合控制 --- */
     .dropdown-content {
         display: none !important; 
         position: static !important;
         background: rgba(140, 126, 109, 0.05) !important;
         width: 100% !important;
-        box-shadow: none !important;
     }
 
-    .dropdown.show .dropdown-content {
-        display: block !important; /* JS 點擊後切換此類別 */
+    /* 這裡要注意：JS 裡切換的是 .dropdown 的類別 */
+    .dropdown.show .dropdown-content,
+    .dropdown.active-click .dropdown-content {
+        display: block !important; 
     }
-
-    .dropbtn {
-        font-weight: bold;
-        display: block;
-        padding: 15px 0;
-        cursor: pointer;
-    }
-
-    /* --- 漢堡按鈕 --- */
-    .menu-toggle { display: block; }
-    .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: #8c7e6d;
-        transition: 0.3s;
-    }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* --- 內容區塊強力修正 (上下堆疊) --- */
-    .container > div, .shop-content {
-        display: block !important; /* 強制變為區塊排列 */
-        width: 100% !important;
-        padding: 0 10px !important;
+    /* 這裡直接針對你分頁的新標籤 .shop-container 改成 block */
+    .shop-container {
+        display: block !important; 
     }
 
-    .shop-article, .shop-info, .container > div > div {
+    .shop-content, .shop-sidebar {
         width: 100% !important;
-        min-width: 100% !important;
-        margin-bottom: 30px !important;
-        padding: 20px !important;
-        box-sizing: border-box !important;
-        flex: none !important;
+        margin-bottom: 20px !important;
+        display: block !important;
+    }
+
+    /* 針對舊有 style 寫死的 div 強力覆蓋 */
+    .container > div {
+        display: block !important;
+        width: 100% !important;
     }
 
     .hero {
