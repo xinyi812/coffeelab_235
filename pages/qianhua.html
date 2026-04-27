@@ -12,6 +12,13 @@
             <img src="../img/logo.png" alt="Logo" class="logo-img">
             23.5°N 的回甘
         </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
         <ul class="nav-links">
             <li><a href="../index.html">首頁</a></li>
             <li><a href="beans.html">咖啡豆百科</a></li>
@@ -36,8 +43,8 @@
     </header>
 
     <section class="container">
-        <div style="display: flex; gap: 50px; flex-wrap: wrap;">
-            <div style="flex: 2; min-width: 300px;">
+        <div class="shop-content">
+            <div class="shop-article">
                 <h2 style="color: #8c7e6d; margin-bottom: 20px;">職人專訪：洗淨鉛華後的醇厚</h2>
                 <p>這裡是放入採訪內容的地方。你可以描述店長的經營理念、對咖啡豆的堅持，以及店內的特色氛圍...</p>
                 <br>
@@ -46,8 +53,8 @@
                 </div>
             </div>
 
-            <div style="flex: 1; min-width: 250px; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <h3 style="margin-bottom: 15px;">店家資訊</h3>
+            <div class="shop-info">
+                <h3>店家資訊</h3>
                 <p><strong>📍 地址：</strong> 615嘉義縣六腳鄉58-8號</p>
                 <p><strong>⏰ 營業時間：</strong> 09:00 - 18:00</p>
                 <p><strong>☕ 推薦飲品：</strong> 職人手沖、冰磚咖啡</p>
@@ -58,72 +65,38 @@
     </section>
 
     <footer><p>&copy; 2026 啡行實驗室</p></footer>
+
     <script>
-    /* =========================================
-       1. 手機版漢堡選單 & 職人咖啡廳收合控制
-       ========================================= */
-    const mobileMenu = document.querySelector('#mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const dropdown = document.querySelector('.dropdown');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdown = document.querySelector('.dropdown');
 
-    if (mobileMenu) {
-        // 點擊漢堡按鈕：切換選單開關
-        mobileMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+        // 1. 漢堡選單開關
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
 
-        // 點擊「職人咖啡廳」：在手機版時切換展開/收合
+        // 2. 職人咖啡廳展開/收合 (針對手機版)
         if (dropdown) {
             dropdown.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
-                    // 阻止點擊事件影響到導覽列外層
                     e.stopPropagation(); 
                     this.classList.toggle('show');
                 }
             });
         }
 
-        // 點擊導覽連結：自動關閉選單 (優化體驗)
+        // 3. 點選連結後自動關閉選單
         navLinks.addEventListener('click', function(e) {
-            // 如果點擊的是「職人咖啡廳」本身，不關閉選單
             if (e.target.closest('.dropdown')) return;
-
             if (mobileMenu.classList.contains('active')) {
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
             }
         });
-    }
-
-    /* =========================================
-       2. 咖啡處理法彈窗 (Modal) 控制
-       ========================================= */
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // 禁止背景滾動
-        }
-    }
-
-    function closeModal(id, event) {
-        // 阻止點擊 X 時觸發到底層的卡片點擊
-        if (event) event.stopPropagation(); 
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // 恢復背景滾動
-        }
-    }
-
-    // 點擊彈窗半透明背景處：自動關閉
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    }
-</script>
+    </script>
 </body>
 </html>

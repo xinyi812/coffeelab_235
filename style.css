@@ -579,3 +579,37 @@ footer {
     }
 }
 
+/* --- 咖啡廳分頁排版 --- */
+.shop-content {
+    display: flex;
+    gap: 50px;
+}
+.shop-article { flex: 2; min-width: 300px; }
+.shop-info { flex: 1; min-width: 250px; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* --- 手機響應式修正 --- */
+@media screen and (max-width: 768px) {
+    /* 1. 導覽列子選單預設隱藏 */
+    .dropdown-content {
+        display: none !important;
+        position: static !important;
+        background: #fdfaf7 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. 當點擊「職人咖啡廳」時顯示內容 */
+    .dropdown.show .dropdown-content {
+        display: block !important;
+    }
+
+    /* 3. 分頁排版改為上下排列 */
+    .shop-content {
+        display: block !important; /* 殺掉 flex 排版 */
+    }
+
+    .shop-article, .shop-info {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+}
