@@ -449,25 +449,26 @@ footer {
    手機版響應式設計 (媒體查詢: 小於 768px 時啟動)
    ========================================= */
 @media screen and (max-width: 768px) {
-    /* 導覽列：讓 Logo 貼左，按鈕貼右 */
+    /* 1. 導覽列基礎設定 */
     nav {
         padding: 10px 15px;
+        height: 60px; /* 固定高度，方便定位 */
     }
 
-    /* 原本的選單：變成側邊隱藏欄 */
+    /* 2. 側邊隱藏選單 */
     .nav-links {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - 60px); /* 減去導覽列高度 */
         position: absolute;
-        top: 60px; /* 如果導覽列變高，這裡也要微調 */
+        top: 60px; 
         left: -100%;
         background: #f7f3f0;
         transition: 0.5s ease;
         z-index: 1000;
-        padding-top: 20px; /* 縮減頂部距離 */
-        overflow-y: auto; /* 內容太多時可以捲動 */
+        padding-top: 20px;
+        overflow-y: auto; 
     }
 
     .nav-links.active {
@@ -475,24 +476,24 @@ footer {
     }
 
     .nav-links li {
-        margin: 15px 0;
+        margin: 10px 0;
         text-align: center;
         width: 100%;
     }
 
-    /* --- ✅ 職人咖啡廳手機版展開邏輯 --- */
+    /* 3. 職人咖啡廳：手機版直接展開內容 */
     .dropdown {
         display: block; 
         width: 100%;
     }
 
     .dropdown-content {
-        display: block; /* 手機版直接展開 */
-        position: static; /* 取消浮動定位 */
-        background-color: rgba(140, 126, 109, 0.05); /* 淡淡的底色區隔 */
+        display: block; /* 讓子選項顯示出來 */
+        position: static; 
+        background-color: rgba(140, 126, 109, 0.05); 
         box-shadow: none;
         width: 100%;
-        padding: 10px 0;
+        padding: 5px 0;
     }
 
     .dropdown-content a {
@@ -509,7 +510,7 @@ footer {
         padding-bottom: 5px;
     }
 
-    /* ✅ 漢堡按鈕樣式 */
+    /* 4. 漢堡按鈕圖案 */
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -524,18 +525,26 @@ footer {
         transition: 0.3s;
     }
 
-    /* 當按鈕激活時變換成 X */
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
+    /* 漢堡變 X 特效 */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* 5. ⚠️ 修正咖啡廳分頁內容擠在一起的問題 */
+    .container > div[style*="display: flex"] {
+        flex-direction: column !important; /* 強制上下排列 */
+        gap: 30px !important;
     }
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+
+    .container > div > div {
+        flex: 1 1 100% !important; /* 強制寬度 100% */
+        min-width: 100% !important;
     }
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+
+    .hero {
+        height: 35vh !important; /* 縮小手機版標題高度 */
     }
 }
-
 /* =========================================
    電腦版樣式修正 (大於 769px)
    ========================================= */
