@@ -484,42 +484,25 @@ footer {
 }
 
 /* ============================================================
-   1. 職人咖啡廳分頁 - 電腦版排版 (預設)
+   1. 電腦版樣式 (穩定結構)
    ============================================================ */
-.shop-content {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    margin-top: 40px;
-}
 
-.shop-article {
-    flex: 2;
-}
-
-.shop-info {
-    flex: 1;
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* ============================================================
-   1. 電腦版基礎樣式 (預設樣式)
-   ============================================================ */
+/* 最外層容器：保持並排 */
 .shop-container {
     display: flex;
     flex-wrap: wrap; 
     gap: 40px;
     margin-top: 30px;
+    align-items: flex-start;
 }
 
+/* 左側：文章內容 */
 .shop-content {
     flex: 2;
     min-width: 300px;
 }
 
+/* 右側：店家資訊側欄 */
 .shop-sidebar {
     flex: 1;
     min-width: 300px;
@@ -529,28 +512,50 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
+/* 確保漢堡按鈕在電腦版是隱藏的 */
+.menu-toggle {
+    display: none;
+}
+
 /* ============================================================
    2. 手機版響應式設計 (Mobile - 小於 768px) 
-   務必放在電腦版樣式下方，確保蓋掉上面的設定
    ============================================================ */
 @media screen and (max-width: 768px) {
-    /* --- 導覽列與側邊選單 --- */
+    /* --- 導覽列修正：確保按鈕出現 --- */
     nav {
-        padding: 10px 15px;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 0 20px;
+        height: 70px;
+        display: flex !important; /* 強制 Flex */
+        justify-content: space-between !important; /* 讓 Logo 和按鈕分開 */
+        align-items: center !important;
         position: relative;
+        background: #f7f3f0;
     }
 
+    /* 強制漢堡按鈕顯示 (解決三條線不見的問題) */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #8c7e6d; /* 咖啡色線條 */
+        transition: 0.3s;
+    }
+
+    /* 選單內容（預設藏在左邊） */
     .nav-links {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: calc(100vh - 60px);
-        position: absolute;
-        top: 60px;
+        height: calc(100vh - 70px);
+        position: fixed; /* 固定定位更穩 */
+        top: 70px;
         left: -100%;
         background: #f7f3f0;
         transition: 0.5s ease;
@@ -559,38 +564,36 @@ footer {
         overflow-y: auto;
     }
 
-    .nav-links.active { left: 0; }
+    .nav-links.active {
+        left: 0;
+    }
 
-    /* --- 職人咖啡廳收合控制 --- */
+    /* --- 職人咖啡廳子選單收合 --- */
     .dropdown-content {
         display: none !important; 
         position: static !important;
         background: rgba(140, 126, 109, 0.05) !important;
         width: 100% !important;
+        box-shadow: none !important;
     }
 
-    /* 這裡要注意：JS 裡切換的是 .dropdown 的類別 */
+    /* 支援 show 或 active-click 類別 */
     .dropdown.show .dropdown-content,
     .dropdown.active-click .dropdown-content {
         display: block !important; 
     }
 
-    /* --- 內容區塊強力修正 (上下堆疊) --- */
-    /* 這裡直接針對你分頁的新標籤 .shop-container 改成 block */
+    /* --- 分頁內容修正：強制上下堆疊 --- */
     .shop-container {
-        display: block !important; 
+        display: block !important; /* 取消 Flex，直接變成垂直排列 */
     }
 
     .shop-content, .shop-sidebar {
         width: 100% !important;
-        margin-bottom: 20px !important;
+        max-width: 100% !important;
+        margin-bottom: 30px !important;
         display: block !important;
-    }
-
-    /* 針對舊有 style 寫死的 div 強力覆蓋 */
-    .container > div {
-        display: block !important;
-        width: 100% !important;
+        flex: none !important; /* 取消電腦版的權重 */
     }
 
     .hero {
