@@ -451,44 +451,67 @@ footer {
 @media screen and (max-width: 768px) {
     /* 導覽列：讓 Logo 貼左，按鈕貼右 */
     nav {
-        padding: 10px 15px; /* 縮小一點 padding，讓東西靠邊 */
+        padding: 10px 15px;
     }
 
     /* 原本的選單：變成側邊隱藏欄 */
     .nav-links {
         display: flex;
-        flex-direction: column; /* 垂直排列 */
+        flex-direction: column;
         width: 100%;
-        height: 100vh; /* 佔滿螢幕高度 */
-        position: absolute; /* 絕對定位 */
-        top: 60px; /* 導覽列下方 */
-        left: -100%; /* 預設在左邊螢幕外 */
-        background: #f7f3f0; /* 跟背景一樣色 */
-        transition: 0.5s ease; /* 滑動動畫 */
+        height: 100vh;
+        position: absolute;
+        top: 60px; /* 如果導覽列變高，這裡也要微調 */
+        left: -100%;
+        background: #f7f3f0;
+        transition: 0.5s ease;
         z-index: 1000;
-        padding-top: 50px;
+        padding-top: 20px; /* 縮減頂部距離 */
+        overflow-y: auto; /* 內容太多時可以捲動 */
     }
 
-    /* 當選單被激活時，滑進螢幕 */
     .nav-links.active {
         left: 0;
     }
 
-    /* 選單內的項目 */
     .nav-links li {
-        margin: 20px 0;
+        margin: 15px 0;
         text-align: center;
         width: 100%;
     }
 
-    /* 隱藏原本的電腦版下拉選單 (因為手機版不好按) */
+    /* --- ✅ 職人咖啡廳手機版展開邏輯 --- */
     .dropdown {
-        display: none;
+        display: block; 
+        width: 100%;
+    }
+
+    .dropdown-content {
+        display: block; /* 手機版直接展開 */
+        position: static; /* 取消浮動定位 */
+        background-color: rgba(140, 126, 109, 0.05); /* 淡淡的底色區隔 */
+        box-shadow: none;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .dropdown-content a {
+        padding: 12px 0;
+        font-size: 0.95rem;
+        display: block;
+        color: #8c7e6d;
+    }
+
+    .dropbtn {
+        font-weight: bold;
+        color: #8c7e6d;
+        display: block;
+        padding-bottom: 5px;
     }
 
     /* ✅ 漢堡按鈕樣式 */
     .menu-toggle {
-        display: block; /* 手機版顯示 */
+        display: block;
         cursor: pointer;
     }
 
@@ -497,11 +520,11 @@ footer {
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background-color: #8c7e6d; /* 咖啡廳色系 */
+        background-color: #8c7e6d;
         transition: 0.3s;
     }
 
-    /* ✅ 當按鈕激活時，漢堡變換成 X 的樣式 */
+    /* 當按鈕激活時變換成 X */
     .menu-toggle.active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -517,8 +540,22 @@ footer {
    電腦版樣式修正 (大於 769px)
    ========================================= */
 @media screen and (min-width: 769px) {
-    /* 電腦版隱藏漢堡按鈕 */
     .menu-toggle {
         display: none;
     }
+    
+    /* 確保電腦版下拉選單維持懸浮隱藏 */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fcfaf8;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        z-index: 1;
+    }
 }
+
