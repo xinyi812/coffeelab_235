@@ -445,38 +445,74 @@ footer {
     color: #555;
 }
 
-/* =========================================
-   手機版響應式設計 (媒體查詢: 小於 768px 時啟動)
-   ========================================= */
+/* ============================================================
+   1. 通用基礎樣式 (Common)
+   ============================================================ */
+.shop-content {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+.shop-article { flex: 2; min-width: 300px; }
+.shop-info { 
+    flex: 1; 
+    min-width: 250px; 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+/* ============================================================
+   2. 電腦版樣式 (Desktop - 大於 769px)
+   ============================================================ */
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fcfaf8;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+}
+
+/* ============================================================
+   3. 手機版響應式設計 (Mobile - 小於 768px)
+   ============================================================ */
 @media screen and (max-width: 768px) {
-    /* 1. 導覽列基礎設定 */
+    /* --- 導覽列與側邊選單 --- */
     nav {
         padding: 10px 15px;
-        height: 60px; /* 固定高度，方便定位 */
+        height: 60px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
     }
 
-    /* 2. 側邊隱藏選單 */
     .nav-links {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: calc(100vh - 60px); 
+        height: calc(100vh - 60px);
         position: absolute;
-        top: 60px; 
+        top: 60px;
         left: -100%;
         background: #f7f3f0;
         transition: 0.5s ease;
         z-index: 1000;
         padding-top: 20px;
-        overflow-y: auto; 
+        overflow-y: auto;
     }
 
-    .nav-links.active {
-        left: 0;
-    }
+    .nav-links.active { left: 0; }
 
     .nav-links li {
         margin: 10px 0;
@@ -484,48 +520,28 @@ footer {
         width: 100%;
     }
 
-    /* 3. 職人咖啡廳：點擊才展開的樣式設定 */
-    .dropdown {
-        display: block; 
-        width: 100%;
-    }
-
+    /* --- 職人咖啡廳收合選單 --- */
     .dropdown-content {
-        display: none; /* 預設不顯示，由 JS 切換 */
-        position: static;
-        background-color: rgba(140, 126, 109, 0.05);
-        width: 100%;
+        display: none !important; /* 預設完全關閉 */
+        position: static !important;
+        background: rgba(140, 126, 109, 0.05) !important;
+        width: 100% !important;
+        box-shadow: none !important;
     }
 
-    /* 當 JS 加上 .show 類別時展開 */
     .dropdown.show .dropdown-content {
-        display: block;
-    }
-
-    .dropdown-content a {
-        padding: 12px 0;
-        font-size: 0.95rem;
-        display: block;
-        color: #8c7e6d;
-        text-align: center;
-        text-decoration: none;
+        display: block !important; /* JS 切換時開啟 */
     }
 
     .dropbtn {
         font-weight: bold;
-        color: #8c7e6d;
         display: block;
         padding: 15px 0;
         cursor: pointer;
-        text-decoration: none;
     }
 
-    /* 4. 漢堡按鈕圖案 */
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-    }
-
+    /* --- 漢堡按鈕 --- */
+    .menu-toggle { display: block; }
     .bar {
         display: block;
         width: 25px;
@@ -534,111 +550,26 @@ footer {
         background-color: #8c7e6d;
         transition: 0.3s;
     }
-
-    /* 漢堡變 X 特效 */
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* 5. 修正咖啡廳分頁內容擠在一起的問題 */
-    .container > div[style*="display: flex"] {
-        flex-direction: column !important; 
-        gap: 30px !important;
-    }
-
-    .container > div > div {
-        flex: 1 1 100% !important; 
-        min-width: 100% !important;
-        padding: 0 10px;
-    }
-
-    .hero {
-        height: 35vh !important; 
-    }
-}
-/* =========================================
-   電腦版樣式修正 (大於 769px)
-   ========================================= */
-@media screen and (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
-    
-    /* 確保電腦版下拉選單維持懸浮隱藏 */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #fcfaf8;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-        z-index: 1;
-    }
-}
-
-/* --- 咖啡廳分頁排版 --- */
-.shop-content {
-    display: flex;
-    gap: 50px;
-}
-.shop-article { flex: 2; min-width: 300px; }
-.shop-info { flex: 1; min-width: 250px; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-
-/* --- 手機響應式修正 --- */
-@media screen and (max-width: 768px) {
-    /* 1. 導覽列子選單預設隱藏 */
-    .dropdown-content {
-        display: none !important;
-        position: static !important;
-        background: #fdfaf7 !important;
-        width: 100% !important;
-        box-shadow: none !important;
-    }
-
-    /* 2. 當點擊「職人咖啡廳」時顯示內容 */
-    .dropdown.show .dropdown-content {
-        display: block !important;
-    }
-
-    /* 3. 分頁排版改為上下排列 */
-    .shop-content {
-        display: block !important; /* 殺掉 flex 排版 */
-    }
-
-    .shop-article, .shop-info {
-        width: 100% !important;
-        margin-bottom: 30px;
-    }
-}
-/* 手機版分頁排版強力修正 */
-@media screen and (max-width: 768px) {
-    /* 1. 針對包住「專訪」和「資訊卡」的容器 */
-    .container > div {
-        display: block !important; /* 關閉並排功能 */
+    /* --- 咖啡廳分頁排版 (解決擠在一起的問題) --- */
+    .container > div, .shop-content {
+        display: block !important; /* 強制取消並排 */
         width: 100% !important;
         padding: 0 10px !important;
     }
 
-    /* 2. 讓專訪內容區塊佔滿寬度 */
-    .container > div > div:first-child {
-        width: 100% !important;
-        margin-bottom: 30px !important;
-        padding-right: 0 !important; /* 消除原本的間距 */
-    }
-
-    /* 3. 讓白色店家資訊卡片佔滿寬度，並單獨成行 */
-    .container > div > div:last-child {
+    .shop-article, .shop-info, .container > div > div {
         width: 100% !important;
         min-width: 100% !important;
-        margin: 0 !important;
+        margin-bottom: 30px !important;
         padding: 20px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; /* 增加一點陰影 */
+        box-sizing: border-box !important;
+        flex: none !important; /* 殺掉 flex 的比例控制 */
     }
 
-    /* 4. 調整標題區塊高度，讓它在手機上不那麼佔空間 */
     .hero {
         height: auto !important;
         min-height: 200px !important;
