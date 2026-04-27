@@ -613,3 +613,35 @@ footer {
         margin-bottom: 30px;
     }
 }
+/* 手機版分頁排版強力修正 */
+@media screen and (max-width: 768px) {
+    /* 1. 針對包住「專訪」和「資訊卡」的容器 */
+    .container > div {
+        display: block !important; /* 關閉並排功能 */
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+
+    /* 2. 讓專訪內容區塊佔滿寬度 */
+    .container > div > div:first-child {
+        width: 100% !important;
+        margin-bottom: 30px !important;
+        padding-right: 0 !important; /* 消除原本的間距 */
+    }
+
+    /* 3. 讓白色店家資訊卡片佔滿寬度，並單獨成行 */
+    .container > div > div:last-child {
+        width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; /* 增加一點陰影 */
+    }
+
+    /* 4. 調整標題區塊高度，讓它在手機上不那麼佔空間 */
+    .hero {
+        height: auto !important;
+        min-height: 200px !important;
+        padding: 60px 20px !important;
+    }
+}
