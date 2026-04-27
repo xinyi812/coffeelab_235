@@ -444,3 +444,81 @@ footer {
     line-height: 1.8;
     color: #555;
 }
+
+/* =========================================
+   手機版響應式設計 (媒體查詢: 小於 768px 時啟動)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* 導覽列：讓 Logo 貼左，按鈕貼右 */
+    nav {
+        padding: 10px 15px; /* 縮小一點 padding，讓東西靠邊 */
+    }
+
+    /* 原本的選單：變成側邊隱藏欄 */
+    .nav-links {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        width: 100%;
+        height: 100vh; /* 佔滿螢幕高度 */
+        position: absolute; /* 絕對定位 */
+        top: 60px; /* 導覽列下方 */
+        left: -100%; /* 預設在左邊螢幕外 */
+        background: #f7f3f0; /* 跟背景一樣色 */
+        transition: 0.5s ease; /* 滑動動畫 */
+        z-index: 1000;
+        padding-top: 50px;
+    }
+
+    /* 當選單被激活時，滑進螢幕 */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* 選單內的項目 */
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 隱藏原本的電腦版下拉選單 (因為手機版不好按) */
+    .dropdown {
+        display: none;
+    }
+
+    /* ✅ 漢堡按鈕樣式 */
+    .menu-toggle {
+        display: block; /* 手機版顯示 */
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #8c7e6d; /* 咖啡廳色系 */
+        transition: 0.3s;
+    }
+
+    /* ✅ 當按鈕激活時，漢堡變換成 X 的樣式 */
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* =========================================
+   電腦版樣式修正 (大於 769px)
+   ========================================= */
+@media screen and (min-width: 769px) {
+    /* 電腦版隱藏漢堡按鈕 */
+    .menu-toggle {
+        display: none;
+    }
+}

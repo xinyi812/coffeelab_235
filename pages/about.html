@@ -102,6 +102,25 @@
     <footer>
         <p>&copy; 2026 啡行實驗室</p>
     </footer>
+    <script>
+    // ✅ 手機版導覽列控制
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', function() {
+        // 切換 active 狀態
+        mobileMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // 點擊選單項目後，自動關閉側邊欄
+    navLinks.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+    });
+</script>
 
 </body>
 </html>
