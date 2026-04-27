@@ -103,23 +103,71 @@
         <p>&copy; 2026 啡行實驗室</p>
     </footer>
     <script>
-    // ✅ 手機版導覽列控制
+    /* =========================================
+       1. 手機版漢堡選單 & 職人咖啡廳收合控制
+       ========================================= */
     const mobileMenu = document.querySelector('#mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const dropdown = document.querySelector('.dropdown');
 
-    mobileMenu.addEventListener('click', function() {
-        // 切換 active 狀態
-        mobileMenu.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // 點擊選單項目後，自動關閉側邊欄
-    navLinks.addEventListener('click', function() {
-        if (mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.toggle('active');
+    if (mobileMenu) {
+        // 點擊漢堡按鈕：切換選單開關
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
             navLinks.classList.toggle('active');
+        });
+
+        // 點擊「職人咖啡廳」：在手機版時切換展開/收合
+        if (dropdown) {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    // 阻止點擊事件影響到導覽列外層
+                    e.stopPropagation(); 
+                    this.classList.toggle('show');
+                }
+            });
         }
-    });
+
+        // 點擊導覽連結：自動關閉選單 (優化體驗)
+        navLinks.addEventListener('click', function(e) {
+            // 如果點擊的是「職人咖啡廳」本身，不關閉選單
+            if (e.target.closest('.dropdown')) return;
+
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+
+    /* =========================================
+       2. 咖啡處理法彈窗 (Modal) 控制
+       ========================================= */
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // 禁止背景滾動
+        }
+    }
+
+    function closeModal(id, event) {
+        // 阻止點擊 X 時觸發到底層的卡片點擊
+        if (event) event.stopPropagation(); 
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // 恢復背景滾動
+        }
+    }
+
+    // 點擊彈窗半透明背景處：自動關閉
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
 </script>
 
 </body>

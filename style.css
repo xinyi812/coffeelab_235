@@ -453,6 +453,9 @@ footer {
     nav {
         padding: 10px 15px;
         height: 60px; /* 固定高度，方便定位 */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     /* 2. 側邊隱藏選單 */
@@ -460,7 +463,7 @@ footer {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: calc(100vh - 60px); /* 減去導覽列高度 */
+        height: calc(100vh - 60px); 
         position: absolute;
         top: 60px; 
         left: -100%;
@@ -481,19 +484,22 @@ footer {
         width: 100%;
     }
 
-    /* 3. 職人咖啡廳：手機版直接展開內容 */
+    /* 3. 職人咖啡廳：點擊才展開的樣式設定 */
     .dropdown {
         display: block; 
         width: 100%;
     }
 
     .dropdown-content {
-        display: block; /* 讓子選項顯示出來 */
-        position: static; 
-        background-color: rgba(140, 126, 109, 0.05); 
-        box-shadow: none;
+        display: none; /* 預設不顯示，由 JS 切換 */
+        position: static;
+        background-color: rgba(140, 126, 109, 0.05);
         width: 100%;
-        padding: 5px 0;
+    }
+
+    /* 當 JS 加上 .show 類別時展開 */
+    .dropdown.show .dropdown-content {
+        display: block;
     }
 
     .dropdown-content a {
@@ -501,13 +507,17 @@ footer {
         font-size: 0.95rem;
         display: block;
         color: #8c7e6d;
+        text-align: center;
+        text-decoration: none;
     }
 
     .dropbtn {
         font-weight: bold;
         color: #8c7e6d;
         display: block;
-        padding-bottom: 5px;
+        padding: 15px 0;
+        cursor: pointer;
+        text-decoration: none;
     }
 
     /* 4. 漢堡按鈕圖案 */
@@ -530,19 +540,20 @@ footer {
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* 5. ⚠️ 修正咖啡廳分頁內容擠在一起的問題 */
+    /* 5. 修正咖啡廳分頁內容擠在一起的問題 */
     .container > div[style*="display: flex"] {
-        flex-direction: column !important; /* 強制上下排列 */
+        flex-direction: column !important; 
         gap: 30px !important;
     }
 
     .container > div > div {
-        flex: 1 1 100% !important; /* 強制寬度 100% */
+        flex: 1 1 100% !important; 
         min-width: 100% !important;
+        padding: 0 10px;
     }
 
     .hero {
-        height: 35vh !important; /* 縮小手機版標題高度 */
+        height: 35vh !important; 
     }
 }
 /* =========================================
