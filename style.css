@@ -628,10 +628,26 @@ footer {
     }
 
     .hero {
-        height: 30vh !important;
+        height: 35vh !important;
         min-height: 200px !important;
-        padding: 60px 20px !important;
+        padding: 40px 20px !important;
     }
+
+    /* 2. 縮小大標題 (鉛花咖啡) */
+    .hero h1 {
+        font-size: 1.8rem !important; /* 原本可能是 2.5rem 或更大 */
+        margin-bottom: 10px !important;
+        letter-spacing: 2px !important;
+    }
+
+    /* 3. 縮小小標題 (Qianhua 或副標) */
+    .hero p {
+        font-size: 1rem !important; /* 讓副標題縮小到剛好可以閱讀的程度 */
+        opacity: 0.9;
+        line-height: 1.5 !important;
+        padding: 0 10px;
+    }
+
 }
 /* 咖啡廳分頁專用的 Hero 特效 */
 .shop-hero {
