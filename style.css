@@ -142,17 +142,28 @@ nav {
         grid-template-columns: repeat(1, 1fr); 
     }
 }
-
+/* 設定網格，讓每一列的卡片高度強行對齊 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動填滿並維持最小寬度 */
+    grid-auto-rows: 1fr; /* 🌟 關鍵：讓同一排的所有卡片等高 */
+    gap: 30px; /* 卡片之間的間距 */
+    padding: 20px;
+}
+/* 卡片設計 */
 /* 卡片設計 */
 .card {
-    width: 100%; /* 確保卡片填滿網格欄位 */
+    display: flex;         /* 🌟 變成彈性佈局 */
+    flex-direction: column; /* 🌟 內容由上而下排列 */
+    height: 100%;          /* 確保填滿 Grid 的高度 */
+    
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer; /* 加上這行，讓人家知道可以點擊 */
+    cursor: pointer;
 }
 
 .card:hover {
@@ -182,6 +193,9 @@ nav {
 
 .card-info {
     padding: 25px;
+    flex-grow: 1;        /* 🌟 關鍵：讓文字區塊自動撐開，填滿剩下的空間 */
+    display: flex;       /* (選填) 如果內文也要對齊，可以再設一次 flex */
+    flex-direction: column;
 }
 
 .card-info h3 {
@@ -192,6 +206,7 @@ nav {
 .card-info p {
     font-size: 0.9rem;
     color: #7a736a;
+    flex-grow: 1;        /* 這樣即便內容少，底部也會對齊 */
 }
 
 /* --- 下拉選單 CSS 修正 --- */
