@@ -454,13 +454,26 @@ footer {
     overflow-y: auto;    /* 只有文字區塊會捲動 */
     padding-right: 10px; /* 給右邊捲軸一點空間，字才不會被蓋住 */
 }
-/* (選填) 讓捲軸漂亮一點，像咖啡色系 */
-.modal-body::-webkit-scrollbar {
-    width: 6px;
+/* 1. 設定捲軸整體的寬度 */
+.modal-content::-webkit-scrollbar {
+    width: 6px; /* 讓捲軸變細，看起來比較精緻 */
 }
-.modal-body::-webkit-scrollbar-thumb {
-    background-color: #8c7e6d;
+
+/* 2. 設定捲軸軌道 (背景) */
+.modal-content::-webkit-scrollbar-track {
+    background: #f1edeb; /* 淺米色背景，跟你的白盒子更配 */
     border-radius: 10px;
+}
+
+/* 3. 設定捲軸本體 (拉條) */
+.modal-content::-webkit-scrollbar-thumb {
+    background: #8c7e6d; /* 使用你的品牌咖啡色 */
+    border-radius: 10px; /* 讓拉條變圓柱狀 */
+}
+
+/* 4. 當滑鼠滑過拉條時稍微變深 */
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #6f6254; 
 }
 
 /* ============================================================
