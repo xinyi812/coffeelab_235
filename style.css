@@ -414,17 +414,20 @@ footer {
 /* 彈窗白盒子 */
 .modal-content {
     background-color: #fcfaf8;
-    margin: 10vh auto;
+    margin: 5vh auto; /* 讓頂部間距小一點，爭取更多顯示空間 */
     padding: 30px;
     border-radius: 20px;
-    width: 80%;
+    width: 85%; /* 手機版會比較好讀 */
     max-width: 500px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
-    animation: fadeIn 0.3s ease-out; /* 彈出動畫 */
-    max-height: 80vh; /* 限制最高為螢幕高度的 80% */
-    overflow-y: auto; /* 超出時自動顯示垂直捲軸 */
-    padding-bottom: 30px; /* 給底部留一點空間，才不會貼邊 */
+    animation: fadeIn 0.3s ease-out;
+
+    /* --- 捲軸關鍵設定 --- */
+    max-height: 85vh;    /* 限制白盒子最高不超過螢幕 85% */
+    display: flex;       /* 使用 Flex 佈局 */
+    flex-direction: column; /* 讓內容垂直排列 */
+    overflow: hidden;    /* 讓白盒子本身不捲動，交給裡面捲 */
 }
 
 @keyframes fadeIn {
@@ -443,9 +446,21 @@ footer {
 }
 
 .modal-body {
-    margin-top: 20px;
+    margin-top: 10px;
     line-height: 1.8;
     color: #555;
+    
+    /* --- 這裡才是捲軸真正出現的地方 --- */
+    overflow-y: auto;    /* 只有文字區塊會捲動 */
+    padding-right: 10px; /* 給右邊捲軸一點空間，字才不會被蓋住 */
+}
+/* (選填) 讓捲軸漂亮一點，像咖啡色系 */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: #8c7e6d;
+    border-radius: 10px;
 }
 
 /* ============================================================
