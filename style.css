@@ -422,6 +422,9 @@ footer {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
     animation: fadeIn 0.3s ease-out; /* 彈出動畫 */
+    max-height: 80vh; /* 限制最高為螢幕高度的 80% */
+    overflow-y: auto; /* 超出時自動顯示垂直捲軸 */
+    padding-bottom: 30px; /* 給底部留一點空間，才不會貼邊 */
 }
 
 @keyframes fadeIn {
