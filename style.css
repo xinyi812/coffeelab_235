@@ -137,26 +137,32 @@ nav {
     }
 }
 
+/* 1. 網格容器：名字必須跟 HTML 的 class="grid" 一致 */
+.grid {
+    display: grid;
+    /* 電腦版一排三個，且自動填滿 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* 🌟 關鍵：強制每一列的卡片高度完全對齊 */
+    grid-auto-rows: 1fr; 
+    gap: 30px;
+    padding: 20px 0;
+    align-items: stretch; /* 確保子元素填滿高度 */
+}
+
+/* 2. 手機版微調：一排一個 */
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: repeat(1, 1fr); 
+        grid-template-columns: 1fr;
+        /* 手機版通常不需要強制等高，讓它隨文字長度即可 */
+        grid-auto-rows: auto; 
     }
 }
-/* 設定網格，讓每一列的卡片高度強行對齊 */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動填滿並維持最小寬度 */
-    grid-auto-rows: 1fr; /* 🌟 關鍵：讓同一排的所有卡片等高 */
-    gap: 30px; /* 卡片之間的間距 */
-    padding: 20px;
-}
-/* 卡片設計 */
-/* 卡片設計 */
+
+/* 3. 卡片設計 */
 .card {
-    display: flex;         /* 🌟 變成彈性佈局 */
-    flex-direction: column; /* 🌟 內容由上而下排列 */
-    height: 100%;          /* 確保填滿 Grid 的高度 */
-    
+    display: flex;         /* 開啟彈性佈局 */
+    flex-direction: column; /* 內容由上而下排列 */
+    height: 100%;          /* 填滿 Grid 給的高度 */
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
@@ -171,14 +177,36 @@ nav {
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
-/* 圖片/輪播區塊高度固定 */
-.card-img, .carousel {
+/* 4. 圖片/輪播區塊：固定高度，確保上方整齊 */
+.carousel, .card-img {
     height: 250px;
-    background-size: cover;
-    background-position: center;
-    background-color: #eee;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* 確保圖片區塊不會被文字擠扁 */
 }
 
+/* 5. 文字資訊區塊 */
+.card-info {
+    padding: 25px;
+    flex-grow: 1;          /* 🌟 關鍵：讓文字區塊吸走剩餘空間，確保底部對齊 */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+    color: #8c7e6d;
+    flex-shrink: 0;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #7a736a;
+    line-height: 1.6;
+    flex-grow: 1;          /* 讓內文段落也撐開，保持結構穩定 */
+}
+
+/* 標籤樣式 */
 .card-tag {
     position: absolute;
     top: 15px;
@@ -188,25 +216,8 @@ nav {
     border-radius: 20px;
     font-size: 0.7rem;
     letter-spacing: 1px;
-    z-index: 5; /* 確保標籤在輪播圖之上 */
-}
-
-.card-info {
-    padding: 25px;
-    flex-grow: 1;        /* 🌟 關鍵：讓文字區塊自動撐開，填滿剩下的空間 */
-    display: flex;       /* (選填) 如果內文也要對齊，可以再設一次 flex */
-    flex-direction: column;
-}
-
-.card-info h3 {
-    margin-bottom: 10px;
-    color: #8c7e6d;
-}
-
-.card-info p {
-    font-size: 0.9rem;
-    color: #7a736a;
-    flex-grow: 1;        /* 這樣即便內容少，底部也會對齊 */
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* --- 下拉選單 CSS 修正 --- */
