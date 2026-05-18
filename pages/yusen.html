@@ -99,63 +99,82 @@
 
     <script>
     /* =========================================
-       1. 手機版漢堡選單 & 職人咖啡廳收合控制
+       1. 手機版導覽列與下拉控制 (最新優化版)
        ========================================= */
     const mobileMenu = document.querySelector('#mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn'); // 🌟 補上關鍵的變數宣告
 
     if (mobileMenu) {
+        // 點擊漢堡按鈕：切換側邊欄開關
         mobileMenu.addEventListener('click', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
+    }
 
-        if (dropdown) {
-            dropdown.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.stopPropagation(); 
-                    this.classList.toggle('show');
-                }
-            });
-        }
+    // 🌟 核心控制：手機版第一次點擊展開選單，選單展開時第二次點擊跳轉
+    if (dropdown && dropbtn) {
+        dropbtn.addEventListener('click', function(e) {
+            // 當螢幕小於等於 768px (手機版) 時才介入
+            if (window.innerWidth <= 768) {
+                
+                // 如果灰色盒子還沒被展開 (沒有 show 類別)
+                if (!dropdown.classList.contains('show')) {
+                    e.preventDefault();  /* 🛑 攔截 A 標籤的第一次跳轉 */
+                    e.stopPropagation(); /* 🛑 阻止點擊事件干擾到外層 */
+                    dropdown.classList.add('show'); /* 展開灰色選單 */
+                } 
+                // 💡 如果已經有了 show，代表這是第二次點擊，
+                // 程式就不會進到這個判斷式，自然能順利跳轉到 cafes.html！
+                
+            }
+        });
+    }
 
-        // 點擊其他區域自動關閉選單
+    if (navLinks && mobileMenu) {
+        // 點擊選單外部或連結後自動關閉側邊欄
         navLinks.addEventListener('click', function(e) {
-            if (e.target.closest('.dropdown')) return;
+            // 如果點擊的是「職人咖啡廳」大標題本體，直接返回，不要關閉側邊欄
+            if (e.target.classList.contains('dropbtn')) return;
+
+            // 點選其他正常連結或子店家時，自動收起漢堡選單與灰色盒子
             if (mobileMenu.classList.contains('active')) {
                 mobileMenu.classList.remove('active');
                 navLinks.classList.remove('active');
+                if (dropdown) dropdown.classList.remove('show'); // 讓選單狀態歸位
             }
         });
     }
 
     /* =========================================
-       2. 咖啡處理法彈窗 (Modal) 控制
+       2. Modal 控制 (完美保留原功能)
        ========================================= */
     function openModal(id) {
         const modal = document.getElementById(id);
         if (modal) {
             modal.style.display = "block";
-            document.body.style.overflow = "hidden";
+            document.body.style.overflow = "hidden"; // 禁止背景滾動
         }
     }
 
     function closeModal(id, event) {
-        if (event) event.stopPropagation(); 
+        if (event) event.stopPropagation(); // 阻止點擊 X 時觸發到底層卡片
         const modal = document.getElementById(id);
         if (modal) {
             modal.style.display = "none";
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "auto"; // 恢復背景滾動
         }
     }
 
+    // 點擊彈窗半透明背景處：自動關閉
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = "none";
             document.body.style.overflow = "auto";
         }
     }
-    </script>
+</script>
 </body>
 </html>

@@ -124,16 +124,22 @@ if (mobileMenu) {
         navLinks.classList.toggle('active');
     });
 
-    // 🌟 關鍵修正：針對「大標題按鈕」做點擊監聽，而不是整個 dropdown 區塊
+    // 鎖定大標題按鈕
     if (dropdown && dropbtn) {
         dropbtn.addEventListener('click', function(e) {
             // 當螢幕小於等於 768px (手機版) 時
             if (window.innerWidth <= 768) {
-                e.preventDefault();    /* 🛑 阻止 A 標籤預設的跳轉行為，讓它留在原地 */
-                e.stopPropagation();    /* 🛑 阻止事件往外冒泡 */
-                dropdown.classList.toggle('show'); /* 切換展開/收合樣式 */
+                
+                // 🌟 關鍵邏輯：如果選單「還沒展開」
+                if (!dropdown.classList.contains('show')) {
+                    e.preventDefault();  /* 🛑 攔截跳轉 */
+                    e.stopPropagation(); /* 🛑 阻止事件冒泡 */
+                    dropdown.classList.toggle('show'); /* 展開灰色盒子 */
+                } 
+                // 💡 如果選單「已經展開了」 (classList 裡面有 show)
+                // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
+                
             }
-            // 💡 電腦版 (大於 768px) 時，不會進入這個 if，所以會正常執行 href="cafes.html" 的跳轉！
         });
     }
 

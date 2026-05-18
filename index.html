@@ -454,16 +454,24 @@
             navLinks.classList.toggle('active');
         });
 
-        // 點擊「職人咖啡廳」展開/收合 (手機版專用)
-        if (dropdown) {
-            dropdown.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    // 阻止 e.stopPropagation() 會導致點擊後選單不關閉，
-                    // 所以我們只切換 show 類別
-                    this.classList.toggle('show');
-                }
-            });
-        }
+        // 鎖定大標題按鈕
+    if (dropdown && dropbtn) {
+        dropbtn.addEventListener('click', function(e) {
+            // 當螢幕小於等於 768px (手機版) 時
+            if (window.innerWidth <= 768) {
+                
+                // 🌟 關鍵邏輯：如果選單「還沒展開」
+                if (!dropdown.classList.contains('show')) {
+                    e.preventDefault();  /* 🛑 攔截跳轉 */
+                    e.stopPropagation(); /* 🛑 阻止事件冒泡 */
+                    dropdown.classList.toggle('show'); /* 展開灰色盒子 */
+                } 
+                // 💡 如果選單「已經展開了」 (classList 裡面有 show)
+                // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
+                
+            }
+        });
+    }
 
         // 點擊一般連結後自動收起選單
         navLinks.addEventListener('click', function(e) {
