@@ -24,7 +24,7 @@
         <li><a href="../index.html">首頁</a></li>
         <li><a href="beans.html">咖啡豆百科</a></li>
         <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">職人咖啡廳 ▾</a>
+            <a href="cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
             <div class="dropdown-content">
                 <a href="qianhua.html">鉛花咖啡</a>
                 <a href="slowsoul.html">慢靈魂咖啡</a>
@@ -55,41 +55,45 @@
     <footer><p>&copy; 2026 啡行實驗室</p></footer>
     <script>
     /* =========================================
-       1. 手機版漢堡選單 & 職人咖啡廳收合控制
-       ========================================= */
-    const mobileMenu = document.querySelector('#mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const dropdown = document.querySelector('.dropdown');
+   1. 手機版漢堡選單 & 職人咖啡廳收合控制
+   ========================================= */
+const mobileMenu = document.querySelector('#mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+const dropdown = document.querySelector('.dropdown');
+const dropbtn = document.querySelector('.dropbtn'); // 🌟 新增：單獨抓取大標題按鈕
 
-    if (mobileMenu) {
-        // 點擊漢堡按鈕：切換選單開關
-        mobileMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+if (mobileMenu) {
+    // 點擊漢堡按鈕：切換選單開關
+    mobileMenu.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 
-        // 點擊「職人咖啡廳」：在手機版時切換展開/收合
-        if (dropdown) {
-            dropdown.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    // 阻止點擊事件影響到導覽列外層
-                    e.stopPropagation(); 
-                    this.classList.toggle('show');
-                }
-            });
-        }
-
-        // 點擊導覽連結：自動關閉選單 (優化體驗)
-        navLinks.addEventListener('click', function(e) {
-            // 如果點擊的是「職人咖啡廳」本身，不關閉選單
-            if (e.target.closest('.dropdown')) return;
-
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                navLinks.classList.remove('active');
+    // 🌟 關鍵修正：針對「大標題按鈕」做點擊監聽，而不是整個 dropdown 區塊
+    if (dropdown && dropbtn) {
+        dropbtn.addEventListener('click', function(e) {
+            // 當螢幕小於等於 768px (手機版) 時
+            if (window.innerWidth <= 768) {
+                e.preventDefault();    /* 🛑 阻止 A 標籤預設的跳轉行為，讓它留在原地 */
+                e.stopPropagation();    /* 🛑 阻止事件往外冒泡 */
+                dropdown.classList.toggle('show'); /* 切換展開/收合樣式 */
             }
+            // 💡 電腦版 (大於 768px) 時，不會進入這個 if，所以會正常執行 href="cafes.html" 的跳轉！
         });
     }
+
+    // 點擊導覽連結：自動關閉選單 (優化體驗)
+    navLinks.addEventListener('click', function(e) {
+        // 如果點擊的是「職人咖啡廳大標題」本身，不需要關閉選單，直接返回
+        if (e.target.classList.contains('dropbtn')) return;
+
+        // 如果點擊的是子選單裡面的店家（鉛花、慢靈魂、裕森）或其他正常連結，則自動收起選單
+        if (mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
+}
 
     /* =========================================
        2. 咖啡處理法彈窗 (Modal) 控制
