@@ -8,38 +8,66 @@
 </head>
 <body>
 
-    <header class="hero" style="height: 35vh; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/cafes-cover.jpg');">
-        <div class="hero-content" style="color: #fff; text-align: center; padding-top: 60px;">
-            <h1 style="font-size: 2rem; letter-spacing: 2px;">職人咖啡廳</h1>
-            <p style="font-size: 1rem; margin-top: 10px;">在北緯 23.5 度，遇見在地職人的沖煮堅持</p>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Logo" class="logo-img">
+            23.5°N 的回甘
+        </a> 
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="beans.html">咖啡豆百科</a></li>
+            <li class="dropdown">
+                <a href="cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
+                <div class="dropdown-content">
+                    <a href="qianhua.html">鉛花咖啡</a>
+                    <a href="slowsoul.html">慢靈魂咖啡</a>
+                    <a href="yusen.html">裕森咖啡</a>
+                </div>
+            </li>
+            <li><a href="game.html">互動遊戲</a></li>
+            <li><a href="about.html">關於我們</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="height: 35vh; background-image: linear-gradient(rgba(140, 126, 109, 0.4), rgba(140, 126, 109, 0.4)), url('img/qianhua-cover.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+        <div class="hero-content" style="color: #fff; text-align: center;">
+            <h1 style="font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 10px; font-weight: 600;">職人咖啡廳</h1>
+            <p style="font-size: 1rem; letter-spacing: 1px; opacity: 0.95;">在北緯 23.5 度，遇見在地職人的沖煮堅持</p>
         </div>
     </header>
 
-    <main class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <main class="container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
+        <h2 style="color: #8c7e6d; text-align: center; margin-bottom: 40px; letter-spacing: 2px;">探索在地職人故事</h2>
+        
         <div class="grid">
             
             <div class="card" onclick="location.href='qianhua.html'">
                 <div class="card-tag">六腳鄉</div>
-                <div class="card-img" style="background-image: url('img/qianhua-cover.jpg'); height: 230px; background-size: cover; background-position: center;"></div>
+                <div class="card-img" style="background-image: url('img/qianhua-cover.jpg');"></div>
                 <div class="card-info">
                     <h3>鉛花咖啡 Qianhua</h3>
-                    <p>在六腳的靜謐裡，用咖啡的香氣拉近鄉里間的溫情。結合書香與職人手沖，洗淨鉛華後的醇厚風味。</p>
+                    <p>在六腳的靜謐裡，用咖啡的香氣拉近鄉里間的溫情。結合書香與職人手沖，品嚐洗淨鉛華後的醇厚風味。</p>
                 </div>
             </div>
 
             <div class="card" onclick="location.href='slowsoul.html'">
                 <div class="card-tag">朴子市</div>
-                <div class="card-img" style="background-image: url('img/slowsoul-cover.jpg'); height: 230px; background-size: cover; background-position: center;"></div>
-                <div class="card-info">
+                <div class="card-img" style="background-image: url('img/dry_01.jpg');"></div> <div class="card-info">
                     <h3>慢靈魂咖啡 Slow Soul</h3>
                     <p>黑膠唱片、老物件，與一杯極致的單品。讓靈魂慢下來，沉浸在音樂與咖啡交織的復古時光。</p>
                 </div>
             </div>
 
             <div class="card" onclick="location.href='yusen.html'">
-                <div class="card-tag">東區</div>
-                <div class="card-img" style="background-image: url('img/yusen-cover.jpg'); height: 230px; background-size: cover; background-position: center;"></div>
-                <div class="card-info">
+                <div class="card-tag">嘉義市</div>
+                <div class="card-img" style="background-image: url('img/dry_02.jpg');"></div> <div class="card-info">
                     <h3>裕森咖啡 Yusen</h3>
                     <p>巷弄老宅裡的深夜咖啡館。隱密而純粹，自家烘焙豆展現迷人層次，是咖啡狂熱者的私藏口袋名單。</p>
                 </div>
@@ -48,5 +76,40 @@
         </div>
     </main>
 
-    </body>
+    <footer style="text-align: center; padding: 30px; color: #aaa; font-size: 0.85rem; background: #fcfaf8; border-top: 1px solid #eee;">
+        © 2026 啡行實驗室
+    </footer>
+
+    <script>
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdown = document.querySelector('.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            if (dropdown && dropbtn) {
+                dropbtn.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('show');
+                    }
+                });
+            }
+
+            navLinks.addEventListener('click', function(e) {
+                if (e.target.classList.contains('dropbtn')) return;
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
 </html>
