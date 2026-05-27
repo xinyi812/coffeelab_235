@@ -219,6 +219,14 @@ nav {
     z-index: 5;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+/* 修正：強制縮小卡片背景圖 */
+.card-img, .carousel {
+    height: 200px !important;                 /* 強制固定高度 */
+    background-size: contain !important;      /* 🌟 關鍵：用 !important 搶回主控權，強制照片縮小完整呈現 */
+    background-repeat: no-repeat !important;  /* 防止照片太小時重複平鋪 */
+    background-position: center !important;   /* 照片絕對置中 */
+    background-color: #fcfaf8 !important;     /* 補上米色底，讓沒填滿的地方變好看 */
+}
 
 /* --- 下拉選單 CSS 修正 --- */
 .dropdown {
