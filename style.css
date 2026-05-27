@@ -480,6 +480,15 @@ footer {
     overflow-y: auto;    /* 只有文字區塊會捲動 */
     padding-right: 10px; /* 給右邊捲軸一點空間，字才不會被蓋住 */
 }
+/* 專門控制彈窗內部的圖片 */
+.modal-body img {
+    max-width: 100%;    /* 🌟 關鍵：圖片最大寬度不會超過文字區域 */
+    height: auto;       /* 🌟 關鍵：高度自動調整，保持原始比例，不變形 */
+    display: block;      /* 讓圖片成為塊級元素 */
+    margin: 15px auto;   /* 圖片上下留白，並水平置中 */
+    border-radius: 8px;  /* (選填) 加一點圓角，比較文青風 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* (選填) 加一點陰影，增加立體感 */
+}
 /* 1. 設定捲軸整體的寬度 */
 .modal-content::-webkit-scrollbar {
     width: 6px; /* 讓捲軸變細，看起來比較精緻 */
