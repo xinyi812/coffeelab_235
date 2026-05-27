@@ -87,7 +87,7 @@ nav {
     justify-content: center;
     text-align: center;
     background-color: #e0dcd5;
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200'); /* 預留背景圖 */
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('img/cover.jpg'); /* 預留背景圖 */
     background-size: cover;
     background-position: center;
     margin-bottom: 50px;
