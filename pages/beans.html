@@ -41,72 +41,384 @@
         <p>探索世界各大產區的獨特風味與品種特徵</p>
     </header>
 
-    <section class="container">
-        <h2 class="region-title">台灣 | Taiwan</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('../img/bean-tw-01.jpg');"></div>
-                <div class="card-info">
-                    <span class="card-tag">嘉義阿里山</span>
-                    <h3>SL34</h3>
-                    <p>原本由肯亞研發，在台灣阿里山適應良好。帶有鮮明的烏梅與柑橘酸感，回甘強烈。</p>
+    <section id="encyclopedia" class="container">
+    <h2 class="section-title">咖啡處理法圖鑑</h2>
+    <div class="grid">
+        
+        <div class="card" onclick="openModal('modal1')">
+            <div class="card-tag">Dry Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/dry_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/dry_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/dry_03.jpg');"></div>
                 </div>
             </div>
-            <div class="card placeholder-card">
-                <p>資料蒐集中...</p>
+            <div class="card-info">
+                <h3>日曬處理法</h3>
+                <p>又稱為自然乾燥法，常見的咖啡處理法之一。</p>
             </div>
         </div>
-    </section>
 
-    <section class="container">
-        <h2 class="region-title">亞洲 | Asia</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('../img/bean-asia-01.jpg');"></div>
-                <div class="card-info">
-                    <span class="card-tag">印尼蘇門答臘</span>
-                    <h3>曼特寧 (Mandheling)</h3>
-                    <p>以獨特的「濕剝法」處理，口感厚實紮實，帶有濃郁的草本、香料與木質調性。</p>
-                </div>
-            </div>
-            </div>
-    </section>
-
-    <section class="container">
-        <h2 class="region-title">美洲 | Americas</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('../img/bean-america-01.jpg');"></div>
-                <div class="card-info">
-                    <span class="card-tag">巴拿馬</span>
-                    <h3>藝妓 (Geisha)</h3>
-                    <p>頂級豆種的代表，以優雅的花香（茉莉）、柑橘風味與極致乾淨的口感聞名於世。</p>
-                </div>
-            </div>
-             <div class="card">
-                <div class="card-img" style="background-image: url('../img/bean-america-02.jpg');"></div>
-                <div class="card-info">
-                    <span class="card-tag">巴西</span>
-                    <h3>黃波旁 (Yellow Bourbon)</h3>
-                    <p>果實成熟時呈現黃色。甜度高，口感圓潤，帶有堅果、巧克力與奶油的溫和風味。</p>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1', event)">&times;</span>
+                <h2>日曬處理法 (Dry Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>將採收後的咖啡果實均勻平鋪於地面或高架棚架，在陽光下曝曬兩至四週。過程中必須定時頻繁翻動，確保乾燥均勻並防止發霉腐爛。待果實內部水分降至 10% 到 12% 的理想標準後，依序去除曬乾的果皮、果肉與果膠層，最後進行脫殼程序，即可取得飽含果香精華的咖啡生豆。</p>
+                    <p><strong>風味特色：</strong>濃郁的果香、極高的甜度，以及柔和的酸味與苦味，整體的味道飽滿、口感醇厚</p>
+                    <p><strong>適合焙度：</strong>中淺焙，能引發出最佳的熱帶水果風味。</p>
                 </div>
             </div>
         </div>
-    </section>
+        
 
-    <section class="container">
-        <h2 class="region-title">非洲 | Africa</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('../img/bean-africa-01.jpg');"></div>
-                <div class="card-info">
-                    <span class="card-tag">衣索比亞</span>
-                    <h3>耶加雪菲 (Yirgacheffe)</h3>
-                    <p>水洗處理法的佼佼者。擁有迷人的檸檬、茉莉花香，口感像茶一樣清新優雅。</p>
+        <div class="card" onclick="openModal('modal2')">
+            <div class="card-tag">Extended Fermentation Natural Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/extended_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/extended_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/extended_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>酒香日曬法</h3>
+                <p>處理過程中並未添加酒精，而是透過延長發酵時長，使咖啡豆獲得日曬法的豐富層次，以及甜感明顯的紅酒調性。但是處理時間長、管理難度高，通常較難大量生產。</p>
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2', event)">&times;</span>
+                <h2>酒香日曬法 (Extended Fermentation Natural Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>嚴選高糖度的完熟咖啡果實，全程歷經 20 天以上的長效曝曬。過程中特別將果實靜置於半密閉空間，藉由提升溫濕度觸發深層發酵，使咖啡豆吸收豐富的果香與酒溢風味。乾燥完成後再進行脫殼處理，將醇厚的酒香氣息完美封存。</p>
+                    <p><strong>風味特色：</strong>具備比一般日曬豆更突出的甜感，入口後能感受到複雜且濃郁的果汁感，並伴隨迷人的紅酒發酵香氣，其酸度表現圓潤且相對較低，整體層次感極為豐富，展現出厚實且深邃的風味底蘊。</p>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="card" onclick="openModal('modal3')">
+            <div class="card-tag">Pupled Natural Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/pupled_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/pupled_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/pupled_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>去果皮日曬法</h3>
+                <p>首創於巴西，結合了日曬與水洗的優點，保留了日曬法的顯著甜感與醇厚度，又兼具水洗法特有的純淨口感，形塑出獨特的風味。雖然去果皮自然處理法與蜜處理法在乾燥階段都保留了果膠層，但去果皮日曬法並不刻意強調果膠留存的具體比例。</p>
+            </div>
+        </div>
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3', event)">&times;</span>
+                <h2>去果皮日曬法 (Natural Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>先用機器去除果皮與果肉，將帶有果膠的咖啡豆進行日曬，直至目標含水率後便可去除剩餘的果膠，最後再脫殼。</p>
+                    <p><strong>風味特色：</strong>介於日曬與水洗之間，擁有日曬豆的甜感與醇厚度，但果香與發酵風味較內斂；同時有水洗豆的純淨度與明亮酸質，整體風味平衡。</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('modal4')">
+            <div class="card-tag">Washed Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/washed_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/washed_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/washed_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>水洗法</h3>
+                <p>適應多樣的氣候條件，突破天氣因素的限制，有利於大幅提升風味穩定度。隨著咖啡產業工業化，其穩定的品質成為精品咖啡廣泛採用的處理方式。然而，水洗法需要大量購買與維護機械設備，也導致了其生產成本與終端售價相對較高。</p>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal4', event)">&times;</span>
+                <h2>水洗法 (Washed Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>首剔除咖啡果實的果皮、果肉與部分果膠，隨後將帶有殘餘果膠的咖啡生豆浸泡於水槽中進行發酵。發酵時間通常介於 12 至 72 小時之間。待發酵程序完成並徹底洗淨果膠層後，再經由 1 至 2 週的乾燥期，最後進行脫殼處理。</p>
+                    <p><strong>風味特色：</strong>處理過程極為縝密，不僅能有效排除雜質，在風味上也具備極高的穩定性。其特徵在於擁有明亮且層次豐富的酸質，並展現出乾淨、清爽的優質口感。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal5')">
+            <div class="card-tag">Kenyan Washed Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/kenyan_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/kenyan_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/kenyan_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>肯亞式水洗法</h3>
+                <p>肯亞式水洗法是當地廣泛使用的處理方式，特色為兩次水中發酵與清洗，整體發酵與水洗階段可長達72小時以上，又稱為「雙重發酵法」。</p>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal5', event)">&times;</span>
+                <h2>肯亞式水洗法 (Kenyan Washed Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>在去除果皮後，將咖啡豆浸泡於水槽中進行約 24 小時的初次發酵。首輪發酵結束後，先以清水徹底洗淨，再次送入水槽進行第二次水洗發酵，時長約 18 至 24 小時。完成後進行最終清洗，進入乾燥與脫殼程序。</p>
+                    <p><strong>風味特色：</strong>與一般水洗豆相比，肯亞式水洗豆展現出更具活力的酸質與更為飽滿的甜感，尾韻則帶有優雅的茶韻與花香。其整體層次分明、風味清晰，口感表現極其純淨。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal6')">
+            <div class="card-tag">Wet Hulling</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/hulling_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/hulling_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/hulling_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>濕剝法</h3>
+                <p>又稱「濕刨法」或「半水洗」，是印尼蘇門答臘特有的處理方式。為因應當地濕熱氣候，在豆子含水率仍高時即脫殼加速乾燥，降低發霉風險，賦予咖啡低酸、濃厚且具極高辨識度的木質泥土調。</p>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal6', event)">&times;</span>
+                <h2>濕剝法 (Wet Hulling)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>先剔除咖啡果實的果皮與果肉，保留果膠層進行 1 至 2 天的初步乾燥，此時含水量約維持在 25% 至 50% 之間。隨後在咖啡豆尚保持濕潤的狀態下直接去殼，使生豆完整裸露，這一關鍵步驟形塑了半水洗豆極具辨識度的外觀。最後，生豆需進行二次乾燥，直至含水量降至 10% 至 12% 後即完成。</p>
+                    <p><strong>風味特色：</strong>通常呈現較為低調的酸質與厚實的體脂感。風味特徵常被形容為帶有泥土、香草或沉穩的木質調性，而甜感的表現則會隨著產地差異與烘焙程度的深淺而展現不同層次。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal7')">
+            <div class="card-tag">Honey Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/honey_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/honey_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/honey_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>蜜處理法</h3>
+                <p>蜜處理是指如蜂蜜般黏稠的果膠。特色在於利用機械精準控制果膠的殘留比例，並依據保留程度與乾燥天數區分為「黑蜜、紅蜜、黃蜜、白蜜」，各層級皆展現出截然不同的風味特性。</p>
+            </div>
+        </div>
+
+        <div id="modal7" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal7', event)">&times;</span>
+                <h2>蜜處理法 (Honey Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>透過機械設備去除咖啡果實的果皮與果肉，並依據設定精準控制果膠的保留比例。帶有果膠的咖啡豆通常需耗時 1 至 2 週進行乾燥，保留的果膠量越多，乾燥所需時間越長，處理難度與風險也隨之增加。待乾燥達標後，最後剔除殘餘果膠並完成脫殼。</p>
+                    <p><strong>風味特色：</strong></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px;"><strong>● 黑蜜：</strong>保留約 75–100% 的果膠，擁有極高甜度與濃郁果香，酸質平衡，風味表現最接近日曬豆。</li>
+                        <li style="margin-bottom: 8px;"><strong>● 紅蜜：</strong>保留約 50% 的果膠，具備顯著甜感與多樣的水果調性，酸度表現適中。</li>
+                        <li style="margin-bottom: 8px;"><strong>● 黃蜜：</strong>保留約 25% 的果膠，口感明亮乾淨，展現細緻甜味與活潑的酸質。</li>
+                        <li style="margin-bottom: 8px;"><strong>● 白蜜：</strong>保留約 10% 的果膠，口感最為清爽輕盈，帶有微幅圓潤甜感，風味特徵趨近水洗豆。</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                        <strong>注意：</strong>蜜處理中的果膠比例並無全球統一標準，顏色變化亦會受發酵時間與環境溫度影響。不同產區或莊園對黑、紅、黃蜜的定義各具特色，因此處理名稱與實際風味可能存在個體差異，建議結合產地背景與莊園脈絡來預期風味表現。</p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal8')">
+            <div class="card-tag">Extended Fermentation Honey Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/ferhoney_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/ferhoney_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/ferhoney_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>百香蜜處理法</h3>
+                <p>是近年興起的蜜處理型態。它以黑蜜處理為基礎，透過延長發酵時間，賦予咖啡豆更深層的甜味與濃郁的熱帶水果風味。由於乾燥過程漫長，生豆極易因環境變動導致過度發酵或受污染，操作風險極高，需投入大量人力精準管理，因此生產成本也相對昂貴。</p>
+            </div>
+        </div>
+
+        <div id="modal8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal8', event)">&times;</span>
+                <h2>百香蜜處理法 (Extended Fermentation Honey Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>保留 80% 以上的果膠進行發酵與乾燥，整個過程可長達 3 週至 1 個月，以確保風味物質能充分滲透至咖啡豆核心。由於果膠層極厚，處理期間需維持高頻率的人工翻動以確保乾燥均勻，同時需嚴格篩檢瑕疵豆以防變質。待乾燥達標後，最後剔除殘餘果膠並完成脫殼。</p>
+                    <p><strong>風味特色：</strong>展現出鮮明的熱帶水果風味，尤以百香果香氣最為顯著，並帶有清爽且層次分明的酒感，尾韻深邃迷人。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal9')">
+            <div class="card-tag">Raisin Raisin Honey Process</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/raisin_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/raisin_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/raisin_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>葡萄乾蜜處理法</h3>
+                <p>介於日曬法與蜜處理之間的新型手法，因乾燥過程中咖啡果實外觀縮褶如葡萄乾而得名。近期在精品咖啡界極具盛名的「哥斯大黎加 卡內特 音樂家系列」，便是採用此種處理法展現其獨特風味。</p>
+            </div>
+        </div>
+
+        <div id="modal9" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal9', event)">&times;</span>
+                <h2>葡萄乾蜜處理法 (Raisin Honey Process)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>選取完整熟成且具備高糖分的咖啡果實，在保有果皮、果肉與果膠的狀態下直接進行初步乾燥，此為第一階段發酵。待果實脫水萎縮至葡萄乾狀後，再剝除果皮與果肉，以保留果膠的狀態進入蜜處理階段，進行第二次發酵與乾燥；此時果膠層已轉化得極為黏稠且含糖量極高。待發酵與乾燥程序完備後，最終剔除殘餘果膠並完成脫殼。</p>
+                    <p><strong>風味特色：</strong>甜感表現卓越，並伴隨濃郁的果香與均衡的酸質。由於發酵風味顯著，尾韻帶有迷人的酒感調性，整體呈現出醇厚度極高的飽滿口感。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal10')">
+            <div class="card-tag">Anaerobic Fermentation</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/anaerobic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/anaerobic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/anaerobic_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>厭氧發酵</h3>
+                <p>將咖啡果實置於密閉容器內，在低氧或無氧環境中進行發酵的技術。發酵過程中，果實代謝產生的二氧化碳會逐漸取代氧氣，從而抑制特定微生物活動，並促進乳酸菌與特定酵母生長，形塑出獨特的風味調性。厭氧發酵並非獨立的處理法，而是一個精密的發酵製程，強調對溫度、濕度、氣體組成及 pH 值等變數的嚴格控管。此製程通常與日曬、蜜處理或水洗法結合，以進行後續的乾燥作業。</p>
+            </div>
+        </div>
+
+        <div id="modal10" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal10', event)">&times;</span>
+                <h2>厭氧發酵 (Anaerobic Fermentation)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>將咖啡果實（可依需求選擇是否去皮與果肉）置入不鏽鋼容器內並徹底阻隔空氣。操作上可選擇主動注入二氧化碳，或利用果實自身代謝排出的二氧化碳排除容器內的殘餘氧氣。依據特定的發酵條件與風味訴求，厭氧程序可持續數小時至數天不等。待發酵完成後，再結合日曬、水洗或蜜處理等方式進行後續的乾燥與加工。</p>
+                    <p><strong>風味特色：</strong>展現出柔和且細緻的酸質，具備極為顯著的果香與花香調性，並伴隨深邃迷人的發酵酒香。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal11')">
+            <div class="card-tag">Carbonic Maceration</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/carbonic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/carbonic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/carbonic_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>二氧化碳浸漬法</h3>
+                <p>源自葡萄酒的釀造技術，2015 年咖啡師 Sasa Sestic 憑藉此法處理的豆子勇奪世界咖啡師大賽冠軍，使其隨即在精品咖啡界聲名大噪。此法與厭氧處理法原理相似，核心差異在於其對無氧環境的掌控更為極致：通常會直接向密封容器內主動注入二氧化碳，以確保容器內部達到完全無氧的狀態，從而更精準地引導發酵過程。</p>
+            </div>
+        </div>
+
+        <div id="modal11" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal11', event)">&times;</span>
+                <h2>二氧化碳浸漬法 (Carbonic Maceration)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>將咖啡果實置於不鏽鋼密封容器後，主動注入二氧化碳以徹底排出氧氣，確保環境達到完全無氧狀態。發酵程序通常維持24 至 72 小時，待發酵完成後，再接續採取日曬、水洗或蜜處理等方式完成後續製程。</p>
+                    <p><strong>風味特色：</strong>賦予咖啡濃郁且奔放的酒香與果香，往往還能發展出獨特的肉桂、奶油或乳酪等層次豐富的感官風味。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="openModal('modal12')">
+            <div class="card-tag">Lactic Fermentation</div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide" style="background-image: url('../img/lactic_01.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/lactic_02.jpg');"></div>
+                    <div class="slide" style="background-image: url('../img/lactic_01.jpg');"></div>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>乳酸發酵</h3>
+                <p>透過精密控管環境參數，刻意營造有利於乳酸菌生長的條件，並同步抑制其他微生物的活動。在厭氧環境中，乳酸菌會將果實糖分轉化為乳酸，這不僅能軟化酸質表現，還能誘發出豐富的果香、花香與甜感，顯著提升整體的風味層次。</p>
+            </div>
+        </div>
+
+        <div id="modal12" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal12', event)">&times;</span>
+                <h2>乳酸發酵 (Lactic Fermentation)</h2>
+                <div class="modal-body">
+                    <p><strong>處理過程：</strong>目前的業界實作主要區分為以下兩大技術路徑：</p>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                        <li style="margin-bottom: 10px;">
+                            <strong>● 鹽水輔助法：</strong>加入濃度約 2% 至 3% 的鹽水，利用特定的滲透壓環境營造競爭優勢，藉此抑制雜菌並促進咖啡原生乳酸菌的穩定生長。
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>● 特定菌株法：</strong>直接接種篩選後的特定菌株，精準引導發酵路徑，使咖啡豆發展出具高度辨識度的標誌性風味。
+                        </li>
+                    </ul>
+                    <p><strong>處理流程：</strong></p>
+                    <ol style="padding-left: 20px; line-height: 1.8;">
+                        <li style="margin-bottom: 8px;">
+                            <strong>入罐反應：</strong>可選用完整咖啡果實或去皮後的生豆，放入密封發酵罐中，並依製程需求添加鹽水或特定菌株。
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <strong>精密控管：</strong>發酵期間需全程監控溫度、濕度及 pH 值的動態變化，以精準掌控發酵進程，確保每一批次生豆的品質穩定與風味一致性。
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <strong>後續加工：</strong>待發酵達標後，先進行徹底清洗以終止發酵反應，隨後進入乾燥程序。
+                        </li>
+                    </ol>
+                    <p><strong>風味特色：</strong>展現出圓潤滑順的乳酸口感，顯著提升了整體的甜感表現。風味中伴隨淡雅的酒香與深邃的發酵香氣，並常帶有莓果、柑橘或茉莉花等層次細緻的芬芳。</p>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="flavor-guide" style="margin: 50px auto; max-width: 900px; padding: 0 20px;">
+    <h3 style="color: #8c7e6d; text-align: center; margin-bottom: 30px; letter-spacing: 2px;">風味特徵與處理法對照</h3>
+    
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background-color: #fcfaf8; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <thead>
+                <tr style="background-color: #8c7e6d; color: #fff;">
+                    <th style="padding: 15px; text-align: left; font-weight: 500; letter-spacing: 1px;">期待口感與風味</th>
+                    <th style="padding: 15px; text-align: left; font-weight: 500; letter-spacing: 1px;">建議處理法</th>
+                </tr>
+            </thead>
+            <tbody style="color: #5d5246; line-height: 1.6;">
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 20px;">清爽口感、活潑酸質</td>
+                    <td style="padding: 20px;">水洗、肯亞式水洗</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee; background-color: #fdfbf9;">
+                    <td style="padding: 20px;">甜感明顯、果香濃郁</td>
+                    <td style="padding: 20px;">日曬、酒香日曬、蜜處理、百香蜜處理、葡萄乾蜜處理</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 20px;">同時具有水洗與日曬風味</td>
+                    <td style="padding: 20px;">去果皮日曬法</td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px;">酒香或特殊調性</td>
+                    <td style="padding: 20px;">半水洗、百香蜜處理、葡萄乾蜜處理、厭氧系列</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="margin-top: 15px; color: #999; font-size: 0.85rem; text-align: right; font-style: italic;">
+        * 風味感受因產區與烘焙程度而異，此表僅供參考。
+    </p>
+</section>
 
     <footer>
         <p>&copy; 2026 啡行實驗室</p>
