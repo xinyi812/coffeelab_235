@@ -784,3 +784,11 @@ footer {
         grid-auto-rows: auto;       /* 手機版不強求等高，隨文字長度延伸 */
     }
 }
+/* 指導教授 RWD 響應式微調 */
+@media screen and (max-width: 768px) {
+    .advisor-card {
+        padding: 30px 20px !important; /* 手機版內縮邊距，防止卡片太寬 */
+        width: 100%;                   /* 寬度自動填滿手機螢幕 */
+        box-sizing: border-box;
+    }
+}
