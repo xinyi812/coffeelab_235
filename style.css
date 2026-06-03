@@ -715,3 +715,32 @@ footer {
     position: relative;
     z-index: 2; 
 }
+/* 首頁橫幅按鈕樣式 */
+.hero-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    font-size: 1.05rem;
+    color: #fff !important;               /* 文字維持白色 */
+    background-color: #8c7e6d;            /* 使用你網站標誌性的溫暖大地色 */
+    text-decoration: none;                /* 拿掉超連結下底線 */
+    border-radius: 50px;                  /* 膠囊圓角，非常現代文青風 */
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(140, 126, 109, 0.3); /* 輕微的大地色陰影 */
+    transition: all 0.3s ease;            /* 讓滑鼠滑過的變形動作變得絲滑 */
+}
+
+/* 當滑鼠移上去 (Hover) 或手機點擊時的動態效果 */
+.hero-btn:hover {
+    background-color: #5d4037;            /* 顏色變成深焦糖深咖色 */
+    transform: translateY(-3px);          /* 按鈕微微往上浮起 3 像素，引導使用者點擊 */
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4); /* 陰影加深，更有立體感 */
+}
+
+/* 手機版尺寸微調 */
+@media screen and (max-width: 768px) {
+    .hero-btn {
+        padding: 10px 28px;
+        font-size: 0.95rem;
+    }
+}
