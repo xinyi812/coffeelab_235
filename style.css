@@ -1,4 +1,6 @@
-/* 全域設定 */
+/* ============================================================
+   1. 全域設定 (Global Styles)
+   ============================================================ */
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +10,30 @@
 body {
     background-color: #f7f3f0;
     color: #4a4238;
-    /* 增加後備字體，確保 Mac/Windows 都有好的呈現 */
-    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif;
+    font-family: 'Noto Serif TC', "Microsoft JhengHei", serif; /* 確保 Mac/Windows 都有好的呈現 */
     line-height: 1.8;
 }
 
-/* 導覽列設定 */
+.container {
+    padding: 50px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    position: relative;
+    color: #8c7e6d;
+}
+
+/* ============================================================
+   2. 導覽列與下拉選單 (Navigation & Dropdown)
+   ============================================================ */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* 這裡把 10% 改成 5%，讓 Logo 更靠左邊，內容更寬 */
-    padding: 8px 5%; 
+    padding: 8px 5%; /* 5% 讓 Logo 更靠左邊，內容更寬 */
     background: rgba(247, 243, 240, 0.95);
     position: sticky;
     top: 0;
@@ -27,30 +41,16 @@ nav {
     border-bottom: 1px solid #e0dcd5;
 }
 
-/* Logo 連結區域：解決底線與對齊問題 */
+/* Logo 連結區域 */
 .logo {
     font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: 2px;
     color: #8c7e6d;
-    /* !important 確保底線在任何分頁都不會出現 */
-    text-decoration: none !important; 
+    text-decoration: none !important; /* !important 確保底線在任何分頁都不會出現 */
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-/* Logo 圖片大小與特效 */
-.logo-img {
-    height: 55px; /* 你可以根據喜好調整這個高度 (50-60px) */
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-/* 滑鼠移上去的反應 */
-.logo:hover .logo-img {
-    transform: scale(1.05);
 }
 
 .logo:hover {
@@ -58,6 +58,19 @@ nav {
     text-decoration: none !important;
 }
 
+/* Logo 圖片大小與特效 */
+.logo-img {
+    height: 55px; /* 高度 (50-60px) */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* 導覽選單連結 */
 .nav-links {
     display: flex;
     list-style: none;
@@ -79,153 +92,7 @@ nav {
     color: #b5ada2;
 }
 
-/* 英雄區 */
-.hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #e0dcd5;
-    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('img/cover.jpg'); /* 預留背景圖 */
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 50px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    letter-spacing: 5px;
-    text-shadow: 1px 1px 10px rgba(255,255,255,0.5);
-}
-
-/* 圖鑑卡片設計 */
-.container {
-    padding: 50px 10%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    position: relative;
-    color: #8c7e6d;
-}
-
-/* 百科 12 宮格排版 */
-.grid {
-    display: grid;
-    /* 強制設定為三欄 */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; 
-    margin-top: 20px;
-    align-items: start;
-}
-
-/* --- 關鍵修正：讓彈窗不要佔用網格位置 --- */
-.grid > .modal {
-    display: none; /* 預設隱藏 */
-    grid-column: auto; /* 不佔用網格欄位 */
-    position: fixed; /* 讓它浮起來，不影響地面上的排版 */
-}
-
-/* 為了確保在平板或手機上不會擠成一團 */
-@media (max-width: 992px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-
-/* 1. 網格容器：名字必須跟 HTML 的 class="grid" 一致 */
-.grid {
-    display: grid;
-    /* 電腦版一排三個，且自動填滿 */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    /* 🌟 關鍵：強制每一列的卡片高度完全對齊 */
-    grid-auto-rows: 1fr; 
-    gap: 30px;
-    padding: 20px 0;
-    align-items: stretch; /* 確保子元素填滿高度 */
-}
-
-/* 2. 手機版微調：一排一個 */
-@media (max-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr;
-        /* 手機版通常不需要強制等高，讓它隨文字長度即可 */
-        grid-auto-rows: auto; 
-    }
-}
-
-/* 3. 卡片設計 */
-.card {
-    display: flex;         /* 開啟彈性佈局 */
-    flex-direction: column; /* 內容由上而下排列 */
-    height: 100%;          /* 填滿 Grid 給的高度 */
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-/* 4. 圖片/輪播區塊：固定高度，確保上方整齊 */
-.carousel, .card-img {
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0; /* 確保圖片區塊不會被文字擠扁 */
-}
-
-/* 5. 文字資訊區塊 */
-.card-info {
-    padding: 25px;
-    flex-grow: 1;          /* 🌟 關鍵：讓文字區塊吸走剩餘空間，確保底部對齊 */
-    display: flex;
-    flex-direction: column;
-}
-
-.card-info h3 {
-    margin-bottom: 10px;
-    color: #8c7e6d;
-    flex-shrink: 0;
-}
-
-.card-info p {
-    font-size: 0.9rem;
-    color: #7a736a;
-    line-height: 1.6;
-    flex-grow: 1;          /* 讓內文段落也撐開，保持結構穩定 */
-}
-
-/* 標籤樣式 */
-.card-tag {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    z-index: 5;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.card-img, .carousel {
-    height: 220px !important;
-    background-size: cover !important;        /* 🌟 強制填滿方塊，並自動裁切多餘部分 */
-    background-position: center !important;   /* 絕對置中 */
-}
-
-/* --- 下拉選單 CSS 修正 --- */
+/* 下拉選單基礎設定 */
 .dropdown {
     position: relative;
 }
@@ -267,71 +134,271 @@ nav {
     color: #8c7e6d;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* 漢堡選單按鈕（預設隱藏） */
+.menu-toggle {
+    display: none;
 }
 
-/* --- 組員介紹區 CSS 修正 --- */
-.team-grid {
+/* ============================================================
+   3. 英雄區橫幅 (Hero Section)
+   ============================================================ */
+.hero {
+    height: 60vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.member-card {
     text-align: center;
-    width: 200px;
-    margin-bottom: 20px;
-}
-
-.member-img {
-    width: 120px;
-    height: 120px;
     background-color: #e0dcd5;
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('img/cover.jpg'); /* 預留背景圖 */
     background-size: cover;
     background-position: center;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    /* 確保圓形不變形 */
-    display: block; 
+    margin-bottom: 50px;
 }
 
-.member-card h3 {
-    font-size: 1.1rem;
-    color: #8c7e6d;
-    margin-bottom: 5px;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 10px rgba(255,255,255,0.5);
 }
 
-.member-card p {
-    font-size: 0.85rem;
-    color: #7a736a;
+/* 咖啡廳分頁專用 Hero 特效 */
+.shop-hero {
+    position: relative;
+    height: 40vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
-footer {
-    text-align: center;
-    padding: 60px 0;
-    font-size: 0.8rem;
-    color: #b5ada2;
-    background-color: #f0ede9; /* 給頁尾一個淡底色區隔 */
+/* 建立一個半透明層，只針對背景 */
+.shop-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
 }
-/* 聯絡按鈕樣式 */
-.contact-btn {
-    text-decoration: none;
-    color: #8c7e6d;
-    border: 1px solid #8c7e6d;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: 0.3s;
+
+/* 確保文字在透明層上面 */
+.hero-content {
+    position: relative;
+    z-index: 2; 
+}
+
+/* 首頁橫幅按鈕樣式 */
+.btn-container {
+    margin-top: 45px !important; /* 把按鈕垂直向下推，落在馬路上 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-btn {
     display: inline-block;
+    padding: 12px 35px;
+    font-size: 1.05rem;
+    color: #fff !important;
+    background-color: #8c7e6d;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(140, 126, 109, 0.3);
+    transition: all 0.3s ease;
 }
 
-.contact-btn:hover {
-    background-color: #8c7e6d;
-    color: #fff;
+.hero-btn:hover {
+    background-color: #5d4037;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
+}
+
+/* ============================================================
+   4. 百科圖鑑網格與卡片 (Grid & Cards)
+   ============================================================ */
+.region-title {
+    font-size: 1.5rem;
+    color: #8c7e6d;
+    border-left: 5px solid #8c7e6d;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+/* 百科 12 宮格網格容器 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 電腦版一排三個，且自動填滿 */
+    grid-auto-rows: 1fr; /* 強制每一列的卡片高度完全對齊 */
+    gap: 30px; 
+    margin-top: 20px;
+    padding: 20px 0;
+    align-items: stretch; /* 確保子元素填滿高度 */
+}
+
+/* 關鍵修正：讓網格內的彈窗不佔用網格位置 */
+.grid > .modal {
+    display: none; 
+    grid-column: auto; 
+    position: fixed; /* 讓它浮起來，不影響地面上的排版 */
+}
+
+/* 卡片基礎設計 */
+.card {
+    display: flex;         /* 開啟彈性佈局 */
+    flex-direction: column; /* 內容由上而下排列 */
+    height: 100%;          /* 填滿 Grid 給的高度 */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* 圖片與輪播區塊 */
+.card-img, .carousel {
+    height: 220px !important;
+    background-size: cover !important;        /* 強制填滿方塊，並自動裁切多餘部分 */
+    background-position: center !important;   /* 絕對置中 */
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* 確保圖片區塊不會被文字擠扁 */
+}
+
+/* 文字資訊區塊 */
+.card-info {
+    padding: 25px;
+    flex-grow: 1;          /* 關鍵：讓文字區塊吸走剩餘空間，確保底部對齊 */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+    color: #8c7e6d;
+    flex-shrink: 0;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #7a736a;
+    line-height: 1.6;
+    flex-grow: 1;          /* 讓內文段落也撐開，保持結構穩定 */
+}
+
+/* 標籤樣式 */
+.card-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 預留位置卡片的特殊樣式 */
+.placeholder-card {
+    background-color: transparent !important;
+    border: 2px dashed #b5ada2 !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #b5ada2;
+}
+
+.placeholder-card:hover {
+    transform: none; /* 預留卡片不需要浮起來 */
+    box-shadow: none;
+}
+
+/* ============================================================
+   5. 自動圖片輪播 (Carousel Animation)
+   ============================================================ */
+.carousel {
+    width: 100%;
+    height: 250px; /* 強制高度 */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* 三張圖所以 300% */
+    height: 100%;
+    animation: slideAnimation 9s infinite; /* 9秒循環一次 */
+}
+
+.slide {
+    width: 33.33%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes slideAnimation {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(0); }
+    33% { transform: translateX(-33.33%); }
+    63% { transform: translateX(-33.33%); }
+    66% { transform: translateX(-66.66%); }
+    96% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+/* ============================================================
+   6. 店家內頁佈局與側欄 (Shop Detail & Sidebar)
+   ============================================================ */
+.shop-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px;
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+.shop-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.shop-article { 
+    flex: 2; 
+    min-width: 300px; 
+}
+
+.shop-sidebar {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.shop-info { 
+    flex: 1; 
+    min-width: 250px; 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
 }
 
 /* 店家總覽清單 */
@@ -361,75 +428,57 @@ footer {
     color: #8c7e6d;
     text-decoration: underline;
 }
-/* 產區大標題樣式 */
-.region-title {
-    font-size: 1.5rem;
-    color: #8c7e6d;
-    border-left: 5px solid #8c7e6d;
-    padding-left: 15px;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
+
+/* ============================================================
+   7. 全寬深色作品概念欄位 (Dark Concept Section)
+   ============================================================ */
+.dark-concept-section {
+    width: 100%;                           /* 強制填滿螢幕左右兩端 */
+    background-color: #3e2723;            /* 深色背景（深焦糖烘焙咖） */
+    padding: 80px 0;                      /* 上下留白 80px */
+    margin: 50px 0;                       /* 與上下其他區塊保持舒服的間距 */
 }
 
-/* 預留位置卡片的樣式 */
-.placeholder-card {
-    background-color: transparent !important;
-    border: 2px dashed #b5ada2 !important;
-    box-shadow: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-    color: #b5ada2;
+.dark-concept-container {
+    max-width: 800px;                     /* 字數最佳閱讀寬度 */
+    margin: 0 auto;                       /* 區塊水平置中 */
+    padding: 0 24px;                      /* 左右預留安全邊距 */
+    text-align: center;                   /* 內文置中對齊 */
 }
 
-.placeholder-card:hover {
-    transform: none; /* 預留卡片不需要浮起來 */
-}
-/* 輪播容器樣式 */
-.carousel {
-    width: 100%;
-    height: 250px; /* 強制高度 */
-    overflow: hidden;
-    position: relative;
+.dark-concept-title {
+    color: #f5f2ee;                       /* 標題改為高質感溫柔米白字 */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 35px;
+    letter-spacing: 3px;                  /* 讓字距拉開，更有文青雜誌感 */
 }
 
-.carousel-inner {
-    display: flex;
-    width: 300%; /* 三張圖所以 300% */
-    height: 100%;
-    animation: slideAnimation 9s infinite; /* 9秒循環一次 */
+.dark-concept-content {
+    color: #d7ccc8;                       /* 內文字用稍微柔和的淺咖白 */
+    font-size: 1.05rem;
+    line-height: 1.9;                     /* 拉高行高，保持流暢好讀 */
+    text-align: justify;                  /* 文字左右齊行 */
 }
 
-.slide {
-    width: 33.33%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
+.dark-concept-content p {
+    margin-bottom: 20px;
+    text-indent: 2em;                     /* 每個段落開頭自動空兩格 */
 }
 
-/* 輪播動畫邏輯 */
-@keyframes slideAnimation {
-    0% { transform: translateX(0); }
-    30% { transform: translateX(0); }
-    33% { transform: translateX(-33.33%); }
-    63% { transform: translateX(-33.33%); }
-    66% { transform: translateX(-66.66%); }
-    96% { transform: translateX(-66.66%); }
-    100% { transform: translateX(0); }
+.dark-concept-highlight {
+    color: #ffe0b2 !important;            /* 用亮眼但溫和的淡琥珀色強調 */
+    font-weight: bold;
+    text-align: center !important;        /* 最後一句問句置中 */
+    text-indent: 0 !important;            /* 拿掉空兩格 */
+    margin-top: 30px;
+    letter-spacing: 1px;
 }
 
-/* 預留空格卡片的特殊樣式 */
-.placeholder-card {
-    border: 2px dashed #e0dcd5;
-    background: transparent;
-    box-shadow: none;
-}
-.placeholder-card:hover {
-    transform: none;
-    box-shadow: none;
-}
-/* 彈窗背景層 */
+/* ============================================================
+   8. 互動彈窗樣式 (Modal Popup)
+   ============================================================ */
 .modal {
     display: none; /* 預設完全不顯示 */
     position: fixed; /* 脫離網頁流，浮在空中 */
@@ -442,13 +491,12 @@ footer {
     backdrop-filter: blur(8px); /* 背景模糊特效 */
 }
 
-/* 彈窗白盒子 */
 .modal-content {
     background-color: #fcfaf8;
     margin: 5vh auto; /* 讓頂部間距小一點，爭取更多顯示空間 */
     padding: 30px;
     border-radius: 20px;
-    width: 85%; /* 手機版會比較好讀 */
+    width: 85%; 
     max-width: 500px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
@@ -457,7 +505,7 @@ footer {
     /* --- 捲軸關鍵設定 --- */
     max-height: 85vh;    /* 限制白盒子最高不超過螢幕 85% */
     display: flex;       /* 使用 Flex 佈局 */
-    flex-direction: column; /* 讓內容垂直排列 */
+    flex-direction: column; 
     overflow: hidden;    /* 讓白盒子本身不捲動，交給裡面捲 */
 }
 
@@ -466,7 +514,6 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 關閉按鈕 */
 .close {
     position: absolute;
     right: 20px;
@@ -480,67 +527,110 @@ footer {
     margin-top: 10px;
     line-height: 1.8;
     color: #555;
-    
-    /* --- 這裡才是捲軸真正出現的地方 --- */
     overflow-y: auto;    /* 只有文字區塊會捲動 */
-    padding-right: 10px; /* 給右邊捲軸一點空間，字才不會被蓋住 */
-}
-/* 專門控制彈窗內部的圖片 */
-.modal-body img {
-    max-width: 100%;    /* 🌟 關鍵：圖片最大寬度不會超過文字區域 */
-    height: auto;       /* 🌟 關鍵：高度自動調整，保持原始比例，不變形 */
-    display: block;      /* 讓圖片成為塊級元素 */
-    margin: 15px auto;   /* 圖片上下留白，並水平置中 */
-    border-radius: 8px;  /* (選填) 加一點圓角，比較文青風 */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* (選填) 加一點陰影，增加立體感 */
-}
-/* 1. 設定捲軸整體的寬度 */
-.modal-content::-webkit-scrollbar {
-    width: 6px; /* 讓捲軸變細，看起來比較精緻 */
+    padding-right: 10px; /* 給右邊捲軸一點空間 */
 }
 
-/* 2. 設定捲軸軌道 (背景) */
+/* 專專門控制彈窗內部的圖片 */
+.modal-body img {
+    max-width: 100%;    /* 圖片最大寬度不會超過文字區域 */
+    height: auto;       /* 高度自動調整，保持原始比例 */
+    display: block;      
+    margin: 15px auto;   /* 圖片上下留白，並水平置中 */
+    border-radius: 8px;  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+/* 自訂彈窗美化捲軸 (Webkit 瀏覽器適用) */
+.modal-content::-webkit-scrollbar {
+    width: 6px; /* 讓捲軸變細 */
+}
+
 .modal-content::-webkit-scrollbar-track {
-    background: #f1edeb; /* 淺米色背景，跟你的白盒子更配 */
+    background: #f1edeb; /* 淺米色背景 */
     border-radius: 10px;
 }
 
-/* 3. 設定捲軸本體 (拉條) */
 .modal-content::-webkit-scrollbar-thumb {
-    background: #8c7e6d; /* 使用你的品牌咖啡色 */
-    border-radius: 10px; /* 讓拉條變圓柱狀 */
+    background: #8c7e6d; /* 品牌咖啡色 */
+    border-radius: 10px; 
 }
 
-/* 4. 當滑鼠滑過拉條時稍微變深 */
 .modal-content::-webkit-scrollbar-thumb:hover {
     background: #6f6254; 
 }
 
 /* ============================================================
-   1. 通用基礎樣式 (Common)
+   9. 組員介紹區 (Team Section)
    ============================================================ */
-.shop-content {
+.team-grid {
     display: flex;
-    gap: 50px;
-    margin-top: 30px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
-.shop-article { flex: 2; min-width: 300px; }
-.shop-info { 
-    flex: 1; 
-    min-width: 250px; 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+
+.member-card {
+    text-align: center;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    background-color: #e0dcd5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block; /* 確保圓形不變形 */
+}
+
+.member-card h3 {
+    font-size: 1.1rem;
+    color: #8c7e6d;
+    margin-bottom: 5px;
+}
+
+.member-card p {
+    font-size: 0.85rem;
+    color: #7a736a;
 }
 
 /* ============================================================
-   2. 電腦版樣式 (Desktop - 大於 769px)
+   10. 頁尾與聯絡資訊 (Footer & Contact)
+   ============================================================ */
+.contact-btn {
+    text-decoration: none;
+    color: #8c7e6d;
+    border: 1px solid #8c7e6d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.contact-btn:hover {
+    background-color: #8c7e6d;
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 60px 0;
+    font-size: 0.8rem;
+    color: #b5ada2;
+    background-color: #f0ede9; /* 給頁尾一個淡底色區隔 */
+}
+
+/* ============================================================
+   11. 媒體查詢 - 電腦版特定樣式 (Desktop - min-width: 769px)
    ============================================================ */
 @media screen and (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
     .dropdown:hover .dropdown-content {
         display: block;
     }
@@ -555,55 +645,30 @@ footer {
 }
 
 /* ============================================================
-   1. 電腦版樣式 (穩定結構)
+   12. 媒體查詢 - 平板與中螢幕微調 (Tablet - max-width: 992px)
    ============================================================ */
-
-/* 最外層容器：保持並排 */
-.shop-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 40px;
-    margin-top: 30px;
-    align-items: flex-start;
-}
-
-/* 左側：文章內容 */
-.shop-content {
-    flex: 2;
-    min-width: 300px;
-}
-
-/* 右側：店家資訊側欄 */
-.shop-sidebar {
-    flex: 1;
-    min-width: 300px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* 確保漢堡按鈕在電腦版是隱藏的 */
-.menu-toggle {
-    display: none;
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 調整為一排兩個卡片 */
+    }
 }
 
 /* ============================================================
-   2. 手機版響應式設計 (Mobile - 小於 768px) 
+   13. 媒體查詢 - 手機版響應式設計 (Mobile - max-width: 768px / 600px)
    ============================================================ */
 @media screen and (max-width: 768px) {
-    /* --- 導覽列修正：確保按鈕出現 --- */
+    /* 導覽列修正：確保漢堡按鈕出現 */
     nav {
         padding: 0 20px;
         height: 70px;
-        display: flex !important; /* 強制 Flex */
-        justify-content: space-between !important; /* 讓 Logo 和按鈕分開 */
+        display: flex !important; 
+        justify-content: space-between !important; 
         align-items: center !important;
         position: relative;
         background: #f7f3f0;
     }
 
-    /* 強制漢堡按鈕顯示 (解決三條線不見的問題) */
+    /* 強制漢堡按鈕顯示 */
     .menu-toggle {
         display: block !important;
         cursor: pointer;
@@ -615,17 +680,17 @@ footer {
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        background-color: #8c7e6d; /* 咖啡色線條 */
+        background-color: #8c7e6d; 
         transition: 0.3s;
     }
 
-    /* 選單內容（預設藏在左邊） */
+    /* 選單內容（手動點擊後自左側滑出） */
     .nav-links {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: calc(100vh - 70px);
-        position: fixed; /* 固定定位更穩 */
+        position: fixed; 
         top: 70px;
         left: -100%;
         background: #f7f3f0;
@@ -639,7 +704,7 @@ footer {
         left: 0;
     }
 
-    /* --- 職人咖啡廳子選單收合 --- */
+    /* 職人咖啡廳子選單折疊收合 */
     .dropdown-content {
         display: none !important; 
         position: static !important;
@@ -648,15 +713,15 @@ footer {
         box-shadow: none !important;
     }
 
-    /* 支援 show 或 active-click 類別 */
+    /* 支援點擊展開 */
     .dropdown.show .dropdown-content,
     .dropdown.active-click .dropdown-content {
         display: block !important; 
     }
 
-    /* --- 分頁內容修正：強制上下堆疊 --- */
+    /* 分頁內容修正：取消 Flex 改為上下堆疊 */
     .shop-container {
-        display: block !important; /* 取消 Flex，直接變成垂直排列 */
+        display: block !important; 
     }
 
     .shop-content, .shop-sidebar {
@@ -664,92 +729,58 @@ footer {
         max-width: 100% !important;
         margin-bottom: 30px !important;
         display: block !important;
-        flex: none !important; /* 取消電腦版的權重 */
+        flex: none !important; 
     }
 
+    /* 縮小手機版 Hero 高度與文字大小 */
     .hero {
         height: 35vh !important;
         min-height: 200px !important;
         padding: 40px 20px !important;
     }
 
-    /* 2. 縮小大標題 (鉛花咖啡) */
     .hero h1 {
-        font-size: 1.8rem !important; /* 原本可能是 2.5rem 或更大 */
+        font-size: 1.8rem !important; 
         margin-bottom: 10px !important;
         letter-spacing: 2px !important;
     }
 
-    /* 3. 縮小小標題 (Qianhua 或副標) */
     .hero p {
-        font-size: 1rem !important; /* 讓副標題縮小到剛好可以閱讀的程度 */
+        font-size: 1rem !important; 
         opacity: 0.9;
         line-height: 1.5 !important;
         padding: 0 10px;
     }
 
-}
-/* 咖啡廳分頁專用的 Hero 特效 */
-.shop-hero {
-    position: relative;
-    height: 40vh;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-}
-
-/* 建立一個半透明層，只針對背景 */
-.shop-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.4); /* 調整 0.4 這個數值來改變透明度 */
-    z-index: 1;
-}
-
-/* 確保文字在透明層上面 */
-.hero-content {
-    position: relative;
-    z-index: 2; 
-}
-.btn-container {
-    margin-top: 45px !important;  /* 👈 關鍵：把按鈕垂直向下推 60 像素，剛好落在馬路上 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* 首頁橫幅按鈕樣式 */
-/* 保持你原本好看的按鈕外觀 */
-.hero-btn {
-    display: inline-block;
-    padding: 12px 35px;
-    font-size: 1.05rem;
-    color: #fff !important;
-    background-color: #8c7e6d;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 15px rgba(140, 126, 109, 0.3);
-    transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-    background-color: #5d4037;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
-}
-
-/* 📱 手機版微調：因為手機螢幕比較短，推移的距離要縮減，才不會把按鈕擠出畫面 */
-@media screen and (max-width: 768px) {
+    /* 手機版橫幅按鈕間距微調 */
     .btn-container {
-        margin-top: 30px !important; /* 手機版向下推 30 像素即可 */
+        margin-top: 30px !important; 
     }
+    
     .hero-btn {
         padding: 10px 28px;
         font-size: 0.95rem;
+    }
+
+    /* 全寬深色作品概念區手機版微調 */
+    .dark-concept-section {
+        padding: 50px 0;
+        margin: 30px 0;
+    }
+    .dark-concept-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .dark-concept-content {
+        font-size: 0.98rem;
+        line-height: 1.8;
+    }
+}
+
+/* 針對極小螢幕（如手機直向）的額外微調 */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr; /* 強制一排一個卡片 */
+        grid-auto-rows: auto;       /* 手機版不強求等高，隨文字長度延伸 */
     }
 }
