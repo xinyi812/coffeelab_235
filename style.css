@@ -191,7 +191,7 @@ nav {
 
 /* 首頁橫幅按鈕樣式 */
 .btn-container {
-    margin-top: 30px !important; /* 把按鈕垂直向下推，落在馬路上 */
+    margin-top: 80px !important; /* 把按鈕垂直向下推，落在馬路上 */
     display: flex;
     justify-content: center;
     align-items: center;
