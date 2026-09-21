@@ -2924,3 +2924,40 @@ footer.site-footer {
         box-shadow: 6px 6px 0 var(--coral);
     }
 }
+html {
+    scroll-behavior: smooth;
+}
+
+.visitor-wall-jump {
+    display: inline-block;
+
+    margin-top: 24px;
+    padding: 10px 18px;
+
+    color: var(--ink);
+    background: var(--white);
+
+    border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--coral);
+
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.visitor-wall-jump:hover {
+    color: var(--ink);
+    background: var(--yellow-soft);
+
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--coral);
+}
+
+#visitor-wall {
+    scroll-margin-top: 100px;
+}
