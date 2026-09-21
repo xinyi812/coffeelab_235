@@ -2793,3 +2793,134 @@ footer.site-footer {
         text-align: right;
     }
 }
+/* ============================================================
+   觀展者留言牆
+   ============================================================ */
+
+.visitor-wall {
+    width: min(1060px, calc(100% - 40px));
+    margin: 100px auto 0;
+}
+
+.visitor-wall-heading {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.visitor-wall-heading .section-kicker {
+    display: inline-block;
+
+    margin-bottom: 15px;
+    padding: 5px 10px;
+
+    color: var(--yellow-pale);
+    background: var(--ink);
+}
+
+.visitor-wall-heading h2 {
+    margin-bottom: 12px;
+
+    font-family:
+        'Noto Serif TC',
+        'Noto Sans TC',
+        sans-serif;
+
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.25;
+}
+
+.visitor-wall-heading > p:last-child {
+    color: var(--ink-soft);
+    font-weight: 600;
+}
+
+.visitor-message-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.visitor-message-card {
+    position: relative;
+
+    min-height: 250px;
+    padding: 30px;
+
+    color: var(--ink);
+    background: var(--white);
+
+    border: 3px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--coral);
+}
+
+.visitor-message-card:nth-child(even) {
+    background: var(--yellow-soft);
+}
+
+.visitor-message-card::before {
+    content: "“";
+
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    color: var(--yellow);
+    font-family: serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.visitor-message-tag {
+    display: inline-block;
+
+    margin-bottom: 24px;
+    padding: 4px 9px;
+
+    color: var(--yellow-pale);
+    background: var(--ink);
+
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.visitor-message-card blockquote {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.visitor-message-author {
+    margin-top: 24px;
+
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+@media (max-width: 700px) {
+    .visitor-wall {
+        margin-top: 75px;
+    }
+
+    .visitor-wall-heading {
+        text-align: left;
+    }
+
+    .visitor-message-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visitor-message-card {
+        min-height: auto;
+        padding: 25px 22px;
+        box-shadow: 6px 6px 0 var(--coral);
+    }
+}
