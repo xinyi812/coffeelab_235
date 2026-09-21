@@ -111,4 +111,59 @@
     );
 
     updateCount();
+
+/* =========================================================
+   公開留言分類篩選
+   ========================================================= */
+
+const filterButtons =
+    document.querySelectorAll(
+        '.visitor-filter-button'
+    );
+
+const messageCards =
+    document.querySelectorAll(
+        '.visitor-message-card'
+    );
+
+filterButtons.forEach(
+    function (button) {
+        button.addEventListener(
+            'click',
+            function () {
+                const selectedCategory =
+                    button.dataset.filter;
+
+                filterButtons.forEach(
+                    function (item) {
+                        const isSelected =
+                            item === button;
+
+                        item.classList.toggle(
+                            'active',
+                            isSelected
+                        );
+
+                        item.setAttribute(
+                            'aria-pressed',
+                            String(isSelected)
+                        );
+                    }
+                );
+
+                messageCards.forEach(
+                    function (card) {
+                        const showCard =
+                            selectedCategory === 'all' ||
+                            card.dataset.category ===
+                                selectedCategory;
+
+                        card.hidden = !showCard;
+                    }
+                );
+            }
+        );
+    }
+);
+
 })();

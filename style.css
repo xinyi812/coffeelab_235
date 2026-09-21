@@ -2836,21 +2836,22 @@ footer.site-footer {
 
 .visitor-message-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
 }
 
 .visitor-message-card {
     position: relative;
 
-    min-height: 250px;
-    padding: 30px;
+    min-height: 180px;
+    padding: 22px;
 
     color: var(--ink);
     background: var(--white);
 
     border: 3px solid var(--ink);
-    box-shadow: 8px 8px 0 var(--coral);
+    box-shadow: 6px 6px 0 var(--coral);
 }
 
 .visitor-message-card:nth-child(even) {
@@ -2861,12 +2862,12 @@ footer.site-footer {
     content: "“";
 
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 8px;
+    right: 16px;
 
     color: var(--yellow);
     font-family: serif;
-    font-size: 5rem;
+    font-size: 3.6rem;
     font-weight: 900;
     line-height: 1;
 }
@@ -2960,4 +2961,90 @@ html {
 
 #visitor-wall {
     scroll-margin-top: 100px;
+}
+/* ============================================================
+   留言分類按鈕
+   ============================================================ */
+
+.visitor-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    max-width: 900px;
+    margin: 26px auto 0;
+}
+
+.visitor-filter-button {
+    padding: 8px 14px;
+
+    color: var(--ink);
+    background: var(--white);
+
+    border: 2px solid var(--ink);
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.visitor-filter-button:hover {
+    background: var(--yellow-soft);
+    transform: translateY(-2px);
+}
+
+.visitor-filter-button.active {
+    color: var(--yellow-pale);
+    background: var(--ink);
+    box-shadow: 4px 4px 0 var(--coral);
+}
+
+.visitor-filter-button:focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 3px;
+}
+
+.visitor-message-card[hidden] {
+    display: none !important;
+}
+
+/* 平板 */
+
+@media (max-width: 900px) {
+    .visitor-message-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 手機 */
+
+@media (max-width: 600px) {
+    .visitor-filters {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .visitor-filter-button {
+        padding: 7px 11px;
+        font-size: 0.74rem;
+    }
+
+    .visitor-message-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visitor-message-card {
+        min-height: 160px;
+        padding: 20px;
+    }
 }
