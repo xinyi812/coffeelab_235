@@ -2839,6 +2839,9 @@ footer.site-footer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     align-items: start;
+
+    /* 分類按鈕與留言卡片之間的距離 */
+    margin-top: 40px;
 }
 
 .visitor-message-card {
@@ -3046,5 +3049,10 @@ html {
     .visitor-message-card {
         min-height: 160px;
         padding: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .visitor-message-grid {
+        margin-top: 28px;
     }
 }
