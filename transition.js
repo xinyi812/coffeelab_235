@@ -82,6 +82,47 @@
 
     window.addEventListener('load', revealPage);
     window.addEventListener('pageshow', revealPage);
+    // 手機版：點左側網頁或選單空白處時收起
+document.addEventListener('click', function (event) {
+    if (window.innerWidth > 768) return;
+
+    const mobileNav =
+        document.querySelector('.nav-links');
+
+    const menuButton =
+        document.querySelector('#mobile-menu');
+
+    if (
+        !mobileNav ||
+        !menuButton ||
+        !mobileNav.classList.contains('active')
+    ) {
+        return;
+    }
+
+    // 點漢堡按鈕時，交給原本的開關功能處理
+    if (menuButton.contains(event.target)) {
+        return;
+    }
+
+    // 點到選單文字時不要直接關閉
+    if (event.target.closest('.nav-links li')) {
+        return;
+    }
+
+    // 點左側網頁或選單空白處，收起選單
+    mobileNav.classList.remove('active');
+    menuButton.classList.remove('active');
+    menuButton.setAttribute('aria-expanded', 'false');
+
+    document
+        .querySelector('.dropdown')
+        ?.classList.remove('show', 'active-click');
+
+    // 避免點左側時同時誤觸底下的按鈕
+    event.preventDefault();
+    event.stopImmediatePropagation();
+});
 
     // 點擊站內連結時顯示轉場
     document.addEventListener('click', function (event) {

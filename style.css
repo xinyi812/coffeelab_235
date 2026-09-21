@@ -712,7 +712,7 @@ footer {
     display: flex;
     flex-direction: column;
 
-    width: 68%;
+    width: 50%;
     max-width: 320px;
     height: calc(100vh - 70px);
     height: calc(100dvh - 70px);
@@ -1427,6 +1427,20 @@ footer {
         flex-direction: column;
         gap: 6px;
         text-align: left;
+    }
+    /* 手機版導覽列文字放大 */
+    .nav-links > li > a {
+    display: block;
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
+    }
+    /* 咖啡廳展開後的子選單 */
+    .dropdown-content a {
+    padding: 13px 20px !important;
+    font-size: 1.05rem !important;
+    font-weight: 600;
     }
 }
 
