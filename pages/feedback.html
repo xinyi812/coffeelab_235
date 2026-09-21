@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="留下你對《23.5°N 的回甘》嘉義老屋咖啡影像展的觀展回饋。"
+    >
+
+    <title>留下觀展記憶｜23.5°N 的回甘</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="../transition.js" defer></script>
+    <script src="../guide.js" defer></script>
+    <script src="../feedback.js" defer></script>
+</head>
+
+<body class="feedback-page">
+
+    <nav>
+        <a href="../index.html" class="logo" aria-label="回到首頁">
+            <img
+                src="../img/logo.png"
+                alt="23.5°N 的回甘標誌"
+                class="logo-img"
+            >
+            <span>23.5°N 的回甘</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="mobile-menu"
+            type="button"
+            aria-label="開啟導覽選單"
+            aria-expanded="false"
+        >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links">
+            <li>
+                <a href="../index.html">首頁</a>
+            </li>
+
+            <li>
+                <a href="game.html">走訪旅程</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="../cafes.html" class="dropbtn">
+                    老屋咖啡館 ▾
+                </a>
+
+                <div class="dropdown-content">
+                    <a href="qianhua.html">鉛花咖啡</a>
+                    <a href="slowsoul.html">慢靈魂咖啡</a>
+                    <a href="yusen.html">裕森咖啡</a>
+                </div>
+            </li>
+
+            <li>
+                <a href="beans.html">咖啡小學堂</a>
+            </li>
+
+            <li>
+                <a href="about.html">關於我們</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="feedback-main">
+
+        <header class="feedback-heading">
+            <p class="section-kicker">
+                VISITOR'S NOTE
+            </p>
+
+            <h1>留下你的觀展記憶</h1>
+
+            <p>
+                如果這趟嘉義老屋咖啡之旅，讓你想起一個地方、
+                一段記憶，或有任何想對我們說的話，歡迎留在這裡。
+            </p>
+        </header>
+
+        <section
+            class="feedback-layout"
+            aria-labelledby="feedback-form-title"
+        >
+
+            <aside class="feedback-note-card">
+                <span
+                    class="feedback-note-number"
+                    aria-hidden="true"
+                >
+                    23.5°N
+                </span>
+
+                <p>
+                    你的文字會先私下送到製作團隊，
+                    不會直接公開在網站上。
+                </p>
+
+                <p>
+                    若你願意，也可以勾選同意，
+                    讓我們之後匿名挑選部分留言，
+                    放進觀眾留言牆。
+                </p>
+            </aside>
+
+            <div class="feedback-form-card">
+
+                <div class="feedback-form-heading">
+                    <p class="section-kicker">
+                        WRITE TO US
+                    </p>
+
+                    <h2 id="feedback-form-title">
+                        你想留下什麼？
+                    </h2>
+                </div>
+
+                <form
+                    id="feedback-form"
+                    action="https://formspree.io/f/xrpbqgda"
+                    method="POST"
+                >
+
+                    <div class="feedback-field">
+                        <label for="feedback-name">
+                            怎麼稱呼你？
+                            <span>選填</span>
+                        </label>
+
+                        <input
+                            id="feedback-name"
+                            name="nickname"
+                            type="text"
+                            maxlength="40"
+                            autocomplete="nickname"
+                            placeholder="可以留白，匿名也沒問題"
+                        >
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedback-favorite">
+                            你最喜歡哪個部分？
+                            <span>選填</span>
+                        </label>
+
+                        <select
+                            id="feedback-favorite"
+                            name="favorite"
+                        >
+                            <option value="">
+                                請選擇
+                            </option>
+
+                            <option value="走訪旅程與遊戲">
+                                走訪旅程與遊戲
+                            </option>
+
+                            <option value="老屋咖啡館故事">
+                                老屋咖啡館故事
+                            </option>
+
+                            <option value="咖啡小學堂">
+                                咖啡小學堂
+                            </option>
+
+                            <option value="網站視覺與導覽">
+                                網站視覺與導覽
+                            </option>
+
+                            <option value="其他">
+                                其他
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedback-message">
+                            你的觀展留言
+                            <span>必填</span>
+                        </label>
+
+                        <textarea
+                            id="feedback-message"
+                            name="message"
+                            rows="7"
+                            minlength="2"
+                            maxlength="1000"
+                            required
+                            placeholder="寫下此刻最想說的一句話……"
+                        ></textarea>
+
+                        <p class="feedback-count">
+                            <span id="feedback-count">0</span>
+                            / 1000
+                        </p>
+                    </div>
+
+                    <label class="feedback-consent">
+                        <input
+                            type="checkbox"
+                            name="public_consent"
+                            value="同意匿名精選公開"
+                        >
+
+                        <span>
+                            我同意這則留言經整理後，
+                            以匿名方式展示於網站的觀眾留言牆。
+                        </span>
+                    </label>
+
+                    <!-- 防止垃圾訊息，使用者看不到 -->
+                    <input
+                        class="feedback-honeypot"
+                        type="text"
+                        name="_gotcha"
+                        tabindex="-1"
+                        autocomplete="off"
+                        aria-hidden="true"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="《23.5°N 的回甘》收到新的觀展留言"
+                    >
+
+                    <button
+                        class="feedback-submit"
+                        type="submit"
+                    >
+                        <span class="feedback-submit-text">
+                            送出這段記憶
+                        </span>
+
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p
+                        id="feedback-status"
+                        class="feedback-status"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 23.5°N 的回甘</p>
+        <p>謝謝你走進這場嘉義老屋咖啡影像展</p>
+
+        <a
+            class="footer-feedback-link"
+            href="feedback.html"
+            aria-current="page"
+        >
+            留下觀展留言
+        </a>
+    </footer>
+
+    <script>
+        const mobileMenu =
+            document.querySelector('#mobile-menu');
+
+        const navLinks =
+            document.querySelector('.nav-links');
+
+        const dropdown =
+            document.querySelector('.dropdown');
+
+        const dropbtn =
+            document.querySelector('.dropbtn');
+
+        mobileMenu?.addEventListener(
+            'click',
+            function () {
+                const isOpen =
+                    mobileMenu.classList.toggle('active');
+
+                navLinks.classList.toggle('active');
+
+                mobileMenu.setAttribute(
+                    'aria-expanded',
+                    String(isOpen)
+                );
+            }
+        );
+
+        dropbtn?.addEventListener(
+            'click',
+            function (event) {
+                if (
+                    window.innerWidth <= 768 &&
+                    !dropdown.classList.contains('show')
+                ) {
+                    event.preventDefault();
+                    dropdown.classList.add('show');
+                }
+            }
+        );
+
+        navLinks?.addEventListener(
+            'click',
+            function (event) {
+                if (
+                    event.target.classList.contains('dropbtn')
+                ) {
+                    return;
+                }
+
+                mobileMenu?.classList.remove('active');
+                navLinks.classList.remove('active');
+
+                mobileMenu?.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+            }
+        );
+    </script>
+
+</body>
+</html>

@@ -24,7 +24,8 @@
                 cafes: '../cafes.html',
                 beans: 'beans.html',
                 about: 'about.html',
-                qianhua: 'qianhua.html'
+                qianhua: 'qianhua.html',
+                feedback: 'feedback.html'
             }
             : {
                 home: 'index.html',
@@ -32,7 +33,8 @@
                 cafes: 'cafes.html',
                 beans: 'pages/beans.html',
                 about: 'pages/about.html',
-                qianhua: 'pages/qianhua.html'
+                qianhua: 'pages/qianhua.html',
+                feedback: 'pages/feedback.html'
             };
 
     /* =========================================================
@@ -62,7 +64,10 @@
             '點擊任一張處理法卡片，就能開啟完整的咖啡知識展牌。',
 
         'about.html':
-            '這裡記錄了《23.5°N 的回甘》的製作團隊與創作理念。'
+    '這裡記錄了《23.5°N 的回甘》的製作團隊與創作理念。',
+
+        'feedback.html':
+    '看完展覽後，歡迎留下一句話。你的回饋會先私下送到製作團隊。'
     };
 
     const currentMessage =
@@ -120,6 +125,10 @@
 
                 <a href="${routes.about}">
                     我想知道製作團隊
+                </a>
+
+                <a href="${routes.feedback}">
+                    我想留下觀展心得
                 </a>
 
                 <button
