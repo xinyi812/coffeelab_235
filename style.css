@@ -1473,10 +1473,13 @@ footer {
 .transition-copy {
     position: relative;
     z-index: 2;
-    width: min(84vw, 560px);
-    padding: 32px;
+    width: min(82vw, 580px);
+    padding: 36px 42px 32px;
     text-align: center;
     color: var(--ink);
+    background: var(--yellow-pale);
+    border: 3px solid var(--ink);
+    box-shadow: 10px 10px 0 var(--coral);
     transition: opacity 0.25s ease, transform 0.35s ease;
 }
 
