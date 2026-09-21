@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>職人咖啡廳總覽 | 23.5°N 的回甘</title>
+    <title>職人咖啡廳總覽｜23.5°N 的回甘</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,17 +12,17 @@
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="Logo" class="logo-img">
             23.5°N 的回甘
-        </a> 
-        
+        </a>
+
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
-        
+
         <ul class="nav-links">
             <li><a href="index.html">首頁</a></li>
-            <li><a href="pages/game.html">遊戲介紹</a></li>
+            <li><a href="pages/game.html">走訪旅程</a></li>
 
             <li class="dropdown">
                 <a href="cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
@@ -32,12 +32,12 @@
                     <a href="pages/yusen.html">裕森咖啡</a>
                 </div>
             </li>
-            <li><a href="pages/beans.html">咖啡專業知識</a></li>
+            <li><a href="pages/beans.html">咖啡處理法圖鑑</a></li>
             <li><a href="pages/about.html">關於我們</a></li>
         </ul>
     </nav>
 
-    <header class="hero" style="height: 35vh; background-image: linear-gradient(rgba(140, 126, 109, 0.4), rgba(140, 126, 109, 0.4)), url('img/cafe-cover.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+    <header class="hero" style="height: 35vh; background-image: linear-gradient(rgba(255, 214, 46, 0.42), rgba(255, 214, 46, 0.42)), url('img/cafe-cover.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
         <div class="hero-content" style="color: #fff; text-align: center;">
             <h1 style="font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 10px; font-weight: 600;">職人咖啡廳</h1>
             <p style="font-size: 1rem; letter-spacing: 1px; opacity: 0.95;">在北緯 23.5 度，遇見在地職人的沖煮堅持</p>
@@ -45,10 +45,10 @@
     </header>
 
     <main class="container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
-        <h2 style="color: #8c7e6d; text-align: center; margin-bottom: 40px; letter-spacing: 2px;">探索在地職人故事</h2>
-        
+        <h2 style="color: #24231E; text-align: center; margin-bottom: 40px; letter-spacing: 2px;">探索在地職人故事</h2>
+
         <div class="grid">
-            
+
             <div class="card" onclick="window.location.href='pages/qianhua.html'">
                 <div class="card-tag">六腳鄉</div>
                 <div class="card-img" style="background-image: url('img/qianhua-cover01.jpg');"></div>
@@ -77,8 +77,8 @@
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 30px; color: #aaa; font-size: 0.85rem; background: #fcfaf8; border-top: 1px solid #eee;">
-        © 2026 啡行實驗室
+    <footer style="text-align: center; padding: 30px; color: #5D594D; font-size: 0.85rem; background: #FFFFFF; border-top: 1px solid #E6C32A;">
+        © 2026 23.5°N 的回甘
     </footer>
 
     <script>
@@ -98,16 +98,16 @@
         dropbtn.addEventListener('click', function(e) {
             // 當螢幕小於等於 768px (手機版) 時
             if (window.innerWidth <= 768) {
-                
+
                 // 🌟 關鍵邏輯：如果選單「還沒展開」
                 if (!dropdown.classList.contains('show')) {
                     e.preventDefault();  /* 🛑 攔截跳轉 */
                     e.stopPropagation(); /* 🛑 阻止事件冒泡 */
                     dropdown.classList.toggle('show'); /* 展開灰色盒子 */
-                } 
+                }
                 // 💡 如果選單「已經展開了」 (classList 裡面有 show)
                 // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
-                
+
             }
         });
     }

@@ -3,164 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23.5°N 的回甘 | 啡行實驗室</title>
+    <meta name="description" content="《23.5°N 的回甘》以影像創作者視角走訪嘉義老屋咖啡館，記錄空間、人與城市記憶。">
+    <title>23.5°N 的回甘｜嘉義老屋咖啡影像旅程</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-page">
+    <nav>
+        <a href="index.html" class="logo" aria-label="回到首頁">
+            <img src="img/logo.png" alt="23.5°N 的回甘標誌" class="logo-img">
+            <span>23.5°N 的回甘</span>
+        </a>
+        <button class="menu-toggle" id="mobile-menu" type="button" aria-label="開啟導覽選單" aria-expanded="false">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a class="active" href="index.html">首頁</a></li>
+            <li><a href="pages/game.html">走訪旅程</a></li>
+            <li class="dropdown">
+                <a href="cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
+                <div class="dropdown-content">
+                    <a href="pages/qianhua.html">鉛花咖啡</a>
+                    <a href="pages/slowsoul.html">慢靈魂咖啡</a>
+                    <a href="pages/yusen.html">裕森咖啡</a>
+                </div>
+            </li>
+            <li><a href="pages/beans.html">咖啡處理法圖鑑</a></li>
+            <li><a href="pages/about.html">關於我們</a></li>
+        </ul>
+    </nav>
 
-   <nav>
-    <a href="index.html" class="logo">
-        <img src="img/logo.png" alt="Logo" class="logo-img">
-        23.5°N 的回甘
-    </a>
-
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="pages/game.html">遊戲介紹</a></li>
-        
-        <li class="dropdown">
-            <a href="cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
-            <div class="dropdown-content">
-                <a href="pages/qianhua.html">鉛花咖啡</a>
-                <a href="pages/slowsoul.html">慢靈魂咖啡</a>
-                <a href="pages/yusen.html">裕森咖啡</a>
+    <main>
+        <header class="hero home-hero">
+            <div class="hero-sun" aria-hidden="true"></div>
+            <div class="hero-content home-hero-content">
+                <p class="eyebrow">嘉義老屋 × 咖啡 × 影像敘事</p>
+                <h1>23.5°N<br><span>的回甘</span></h1>
+                <p class="hero-lead">走進嘉義的老屋咖啡館，拍下空間裡仍在發生的人與故事。</p>
+                <div class="hero-actions">
+                    <a href="pages/game.html" class="primary-btn">踏上拍攝旅程 <span aria-hidden="true">→</span></a>
+                    <a href="cafes.html" class="secondary-btn">觀看咖啡館展間</a>
+                </div>
             </div>
-        </li>
-        <li><a href="pages/beans.html">咖啡專業知識</a></li>
-        <li><a href="pages/about.html">關於我們</a></li>
-    </ul>
-</nav>
+            <div class="exhibition-stamp" aria-hidden="true"><span>23.5°N</span><small>CHIAYI</small></div>
+        </header>
 
-    <header class="hero">
-    <div class="hero-content" style="text-align: center; position: relative; z-index: 2;">
-        <h1 style="color: #4e342e; font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 3px;">探索種子到杯中的藝術</h1>
-        <p style="color: #6d4c41; font-size: 1.1rem; margin-bottom: 25px; letter-spacing: 1px;">在北緯 23.5 度，遇見最純粹的咖啡香氣。</p>
-        
-        <div class="btn-container">
-            <a href="https://youtu.be/h8jBlq4_WGY?si=8GMY3S5r19yC7ijm" target="_blank" class="hero-btn">
-                進入遊戲 ☕
-            </a>
-        </div>
-    </div>
-</header>
-
-<section class="dark-concept-section">
-    <div class="dark-concept-container">
-        
-        <h2 class="dark-concept-title">作品概念</h2>
-        
-        <div class="dark-concept-content">
-            <p>
-                《23.5°N 的回甘：啡行實驗室》不只是一場關於咖啡的遊戲，更是一段沿著北緯 23.5 度回溯家鄉人情溫度的「回甘之旅」。我們將嘉義在地職人咖啡廳的堅持，與咖啡種子到杯中的繁複工藝，轉化為直覺、有趣的互動體驗。
-            </p>
-            <p>
-                透過開著復古「咖啡車」穿梭在阿里山與鄉村田野間的意象，玩家將扮演啡行實驗員。在沖煮每一杯咖啡的過程中，你將解鎖不同的烘焙度與處理法知識，並在旅途中遇見六腳鄉、民雄鄉與新港鄉的職人故事。
-            </p>
-            <p class="dark-concept-highlight">
-                準備好拉起手煞車，開啟這趟融合知識、人文與黑金香氣的啡行實驗了嗎？
-            </p>
-        </div>
-        
-    </div>
-</section>
-
-   
-    <section id="game" class="container" style="text-align: center; margin-top: 50px;">
-        <h2 class="section-title">互動遊戲體驗</h2>
-        <div style="background: #e0dcd5; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 15px; border: 2px dashed #b5ada2;">
-            <div style="text-align: center;">
-                <p style="margin-bottom: 20px;">準備好開始你的咖啡車之旅了嗎？</p>
-                <a href="pages/game.html" class="contact-btn" style="text-decoration: none;">進入遊戲分頁</a>
+        <section class="intro-section">
+            <div class="intro-number" aria-hidden="true">01</div>
+            <div class="intro-heading">
+                <p class="section-kicker">STORY BEGINS</p>
+                <h2>一場還缺少作品的<br>老洋房攝影展</h2>
             </div>
-        </div>
-    </section>
+            <div class="intro-copy">
+                <p>一名年輕影像創作者，準備在嘉義一棟百年老洋房裡舉辦小型攝影展，主題是「嘉義老屋咖啡的城市記憶」。</p>
+                <p>為了找到真正能代表地方的畫面，主角開始走訪具有故事的咖啡館。旅程中逐漸發現，鏡頭記錄的不只是漂亮的老屋與咖啡，而是舊空間如何因為人重新被使用、被看見。</p>
+                <p class="highlight-line">最後，照片與故事將回到老洋房，完成屬於嘉義的影像展。</p>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 啡行實驗室</p>
-    </footer>
+        <section class="journey-preview" aria-labelledby="journey-title">
+            <div class="section-heading-row">
+                <div><p class="section-kicker">THE JOURNEY</p><h2 id="journey-title">你會如何完成這場展覽？</h2></div>
+                <a href="pages/game.html" class="text-link">完整旅程介紹 <span aria-hidden="true">↗</span></a>
+            </div>
+            <ol class="journey-steps">
+                <li><span class="step-number">01</span><div class="step-icon" aria-hidden="true">⌂</div><h3>探索空間</h3><p>在老牆、柱子與日常擺設之間，尋找空間過去留下的痕跡。</p></li>
+                <li><span class="step-number">02</span><div class="step-icon" aria-hidden="true">◌</div><h3>聆聽故事</h3><p>與店家對話，理解他們為什麼選擇在這裡，咖啡又如何進入生活。</p></li>
+                <li><span class="step-number">03</span><div class="step-icon" aria-hidden="true">▣</div><h3>拍下影像</h3><p>找出「過去仍留在現在」的畫面，完成能代表每間店的一張照片。</p></li>
+                <li><span class="step-number">04</span><div class="step-icon" aria-hidden="true">◇</div><h3>完成展覽</h3><p>將蒐集的照片與記憶帶回老洋房，讓展牆一格一格被點亮。</p></li>
+            </ol>
+        </section>
 
+        <section class="split-cta">
+            <div class="split-cta-copy"><p class="section-kicker">TWO WAYS TO ENTER</p><h2>看見展覽成果，<br>或親自走完旅程。</h2></div>
+            <div class="split-cta-actions">
+                <a href="cafes.html" class="route-card route-card-dark"><span class="route-label">EXHIBITION</span><strong>走進咖啡館展間</strong><span>閱讀空間與職人的完整故事 →</span></a>
+                <a href="pages/game.html" class="route-card route-card-light"><span class="route-label">GAME JOURNEY</span><strong>了解拍攝旅程</strong><span>看看玩家如何完成這場攝影展 →</span></a>
+            </div>
+        </section>
+    </main>
 
+    <footer><p>© 2026 23.5°N 的回甘</p><p>嘉義老屋咖啡的城市記憶</p></footer>
     <script>
-    /* =========================================
-       1. 手機版漢堡選單 & 職人咖啡廳收合控制
-       ========================================= */
-    const mobileMenu = document.querySelector('#mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const dropdown = document.querySelector('.dropdown');
-
-    if (mobileMenu) {
-        // 漢堡按鈕點擊開關
-        mobileMenu.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdown = document.querySelector('.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+        mobileMenu?.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
+            mobileMenu.setAttribute('aria-expanded', String(isOpen));
         });
-
-        // 鎖定大標題按鈕
-    if (dropdown && dropbtn) {
-        dropbtn.addEventListener('click', function(e) {
-            // 當螢幕小於等於 768px (手機版) 時
-            if (window.innerWidth <= 768) {
-                
-                // 🌟 關鍵邏輯：如果選單「還沒展開」
-                if (!dropdown.classList.contains('show')) {
-                    e.preventDefault();  /* 🛑 攔截跳轉 */
-                    e.stopPropagation(); /* 🛑 阻止事件冒泡 */
-                    dropdown.classList.toggle('show'); /* 展開灰色盒子 */
-                } 
-                // 💡 如果選單「已經展開了」 (classList 裡面有 show)
-                // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
-                
+        dropbtn?.addEventListener('click', (event) => {
+            if (window.innerWidth <= 768 && !dropdown.classList.contains('show')) {
+                event.preventDefault(); dropdown.classList.add('show');
             }
         });
-    }
-
-        // 點擊一般連結後自動收起選單
-        navLinks.addEventListener('click', function(e) {
-            // 如果點擊的是 dropdown 內部或 dropdown 本身，不要自動關閉選單
-            if (e.target.closest('.dropdown')) return;
-
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
+        navLinks?.addEventListener('click', (event) => {
+            if (event.target.classList.contains('dropbtn')) return;
+            mobileMenu?.classList.remove('active'); navLinks.classList.remove('active');
+            mobileMenu?.setAttribute('aria-expanded', 'false');
         });
-    }
-
-    /* =========================================
-       2. 咖啡處理法彈窗 (Modal) 控制
-       ========================================= */
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // 鎖定背景滾動
-        }
-    }
-
-    function closeModal(id, event) {
-        if (event) event.stopPropagation(); // 阻止事件冒泡到卡片
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // 恢復背景滾動
-        }
-    }
-
-    // 點擊彈窗背景區域關閉
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    }
-</script>
-
+    </script>
 </body>
 </html>
