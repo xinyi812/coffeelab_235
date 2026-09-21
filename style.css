@@ -1815,3 +1815,505 @@ body.page-leaving .exhibition-transition {
         grid-template-columns: 1fr;
     }
 }
+/* ============================================================
+   16. 網站導覽角色
+   ============================================================ */
+
+.guide-assistant {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 9000;
+
+    font-family:
+        'Noto Sans TC',
+        "Microsoft JhengHei",
+        sans-serif;
+}
+
+/* ============================================================
+   導覽角色按鈕
+   ============================================================ */
+
+.guide-character {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-height: 62px;
+    padding: 7px 16px 7px 8px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    color: var(--ink);
+    background: var(--yellow);
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    box-shadow: 6px 6px 0 var(--coral);
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 900;
+    line-height: 1.3;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.guide-character:hover {
+    background: var(--yellow-bright);
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--coral);
+}
+
+.guide-character:active {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--coral);
+}
+
+/* guide.jpg 角色圖片 */
+
+.guide-character-image {
+    display: block;
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    object-fit: cover;
+    object-position: center top;
+
+    background: var(--yellow-pale);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+}
+
+/* 角色按鈕文字 */
+
+.guide-character-label {
+    display: block;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+/* 圖片讀取失敗時顯示 */
+
+.guide-character-fallback {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    background: var(--yellow-pale);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+
+    font-size: 1.35rem;
+}
+
+/* ============================================================
+   導覽對話框
+   ============================================================ */
+
+.guide-panel {
+    position: absolute;
+    left: 0;
+    bottom: 84px;
+
+    width: min(350px, calc(100vw - 48px));
+    padding: 24px;
+
+    color: var(--ink);
+    background: var(--yellow-pale);
+
+    border: 3px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 10px 10px 0 var(--coral);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(16px) scale(0.97);
+    transform-origin: left bottom;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* 對話框下方的小箭頭 */
+
+.guide-panel::after {
+    content: "";
+
+    position: absolute;
+    left: 28px;
+    bottom: -13px;
+
+    width: 20px;
+    height: 20px;
+
+    background: var(--yellow-pale);
+    border-right: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+
+    transform: rotate(45deg);
+}
+
+/* 開啟狀態 */
+
+.guide-assistant.is-open .guide-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   對話框上方英文標籤
+   ============================================================ */
+
+.guide-kicker {
+    display: inline-block;
+
+    margin: 0 48px 15px 0;
+    padding: 5px 9px;
+
+    color: var(--ink);
+    background: var(--yellow);
+    border: 2px solid var(--ink);
+
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    line-height: 1.2;
+}
+
+/* ============================================================
+   對話框標題與文字
+   ============================================================ */
+
+.guide-panel h2 {
+    margin: 0 42px 10px 0;
+
+    color: var(--ink);
+
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.guide-message {
+    margin: 0;
+
+    color: var(--ink-soft);
+
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+.guide-question {
+    margin: 17px 0 11px;
+    padding-top: 14px;
+
+    color: var(--ink);
+    border-top: 2px solid var(--ink);
+
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+/* ============================================================
+   關閉按鈕
+   ============================================================ */
+
+.guide-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    color: var(--ink);
+    background: var(--yellow);
+
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    box-shadow: 3px 3px 0 var(--ink);
+
+    font-family: inherit;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.guide-close:hover {
+    background: var(--coral);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ============================================================
+   導覽選項
+   ============================================================ */
+
+.guide-actions {
+    display: grid;
+    gap: 9px;
+}
+
+.guide-actions a,
+.guide-later {
+    display: block;
+
+    width: 100%;
+    padding: 11px 13px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    color: var(--ink);
+    background: var(--white);
+
+    border: 2px solid var(--ink);
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* 選項前面的箭頭 */
+
+.guide-actions a::before {
+    content: "→";
+    display: inline-block;
+
+    margin-right: 8px;
+
+    font-weight: 900;
+
+    transition: transform 0.2s ease;
+}
+
+.guide-actions a:hover {
+    background: var(--yellow);
+    transform: translateX(4px);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+.guide-actions a:hover::before {
+    transform: translateX(3px);
+}
+
+/* 我先自己看看 */
+
+.guide-later {
+    color: var(--yellow-pale);
+    background: var(--ink);
+
+    font-weight: 700;
+    text-align: center;
+}
+
+.guide-later:hover {
+    color: var(--ink);
+    background: var(--coral);
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   鍵盤操作焦點
+   ============================================================ */
+
+.guide-character:focus-visible,
+.guide-close:focus-visible,
+.guide-actions a:focus-visible,
+.guide-later:focus-visible {
+    outline: 4px solid var(--white);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   手機版
+   ============================================================ */
+
+@media (max-width: 600px) {
+    .guide-assistant {
+        left: 16px;
+        bottom: 18px;
+    }
+
+    .guide-character {
+        min-height: 54px;
+        padding: 5px 12px 5px 6px;
+
+        border-width: 2px;
+        box-shadow: 5px 5px 0 var(--coral);
+    }
+
+    .guide-character-image,
+    .guide-character-fallback {
+        width: 42px;
+        height: 42px;
+    }
+
+    .guide-character-label {
+        font-size: 0.8rem;
+    }
+
+    .guide-panel {
+        position: fixed;
+
+        left: 16px;
+        right: 16px;
+        bottom: 90px;
+
+        width: auto;
+        max-height: calc(100vh - 125px);
+        max-height: calc(100dvh - 125px);
+
+        padding: 20px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        border-width: 2px;
+        box-shadow: 7px 7px 0 var(--coral);
+
+        transform-origin: left bottom;
+    }
+
+    .guide-panel::after {
+        left: 25px;
+        bottom: -10px;
+
+        width: 16px;
+        height: 16px;
+
+        border-width: 0 2px 2px 0;
+    }
+
+    .guide-kicker {
+        max-width: calc(100% - 52px);
+
+        margin-bottom: 13px;
+
+        font-size: 0.63rem;
+        letter-spacing: 1px;
+    }
+
+    .guide-panel h2 {
+        margin-right: 42px;
+
+        font-size: 1.25rem;
+    }
+
+    .guide-message {
+        font-size: 0.88rem;
+        line-height: 1.7;
+    }
+
+    .guide-question {
+        margin-top: 14px;
+
+        font-size: 0.88rem;
+    }
+
+    .guide-close {
+        top: 14px;
+        right: 14px;
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 23px;
+    }
+
+    .guide-actions a,
+    .guide-later {
+        padding: 10px 11px;
+
+        font-size: 0.84rem;
+    }
+}
+
+/* ============================================================
+   極小手機
+   ============================================================ */
+
+@media (max-width: 380px) {
+    .guide-character-label {
+        display: none;
+    }
+
+    .guide-character {
+        width: 56px;
+        height: 56px;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    .guide-panel {
+        left: 12px;
+        right: 12px;
+        bottom: 88px;
+
+        padding: 18px;
+    }
+}
+
+/* ============================================================
+   減少動畫設定
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .guide-character,
+    .guide-panel,
+    .guide-close,
+    .guide-actions a,
+    .guide-later {
+        transition-duration: 0.01ms !important;
+    }
+}
