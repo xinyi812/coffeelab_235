@@ -3,132 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>互動遊戲 | 23.5°N 的回甘</title>
+    <meta name="description" content="了解《23.5°N 的回甘》的故事背景、核心玩法與嘉義老屋咖啡拍攝旅程。">
+    <title>走訪旅程｜23.5°N 的回甘</title>
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-   <nav>
-    <a href="../index.html" class="logo">
-        <img src="../img/logo.png" alt="Logo" class="logo-img">
-        23.5°N 的回甘
-    </a> 
-    
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-    
-    <ul class="nav-links">
-        <li><a href="../index.html">首頁</a></li>
-        <li><a href="game.html">遊戲介紹</a></li>
-        <li class="dropdown">
-            <a href="../cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
-            <div class="dropdown-content">
-                <a href="qianhua.html">鉛花咖啡</a>
-                <a href="slowsoul.html">慢靈魂咖啡</a>
-                <a href="yusen.html">裕森咖啡</a>
+<body class="journey-page">
+    <nav>
+        <a href="../index.html" class="logo" aria-label="回到首頁"><img src="../img/logo.png" alt="23.5°N 的回甘標誌" class="logo-img"><span>23.5°N 的回甘</span></a>
+        <button class="menu-toggle" id="mobile-menu" type="button" aria-label="開啟導覽選單" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        <ul class="nav-links">
+            <li><a href="../index.html">首頁</a></li><li><a class="active" href="game.html">走訪旅程</a></li>
+            <li class="dropdown"><a href="../cafes.html" class="dropbtn">職人咖啡廳 ▾</a><div class="dropdown-content"><a href="qianhua.html">鉛花咖啡</a><a href="slowsoul.html">慢靈魂咖啡</a><a href="yusen.html">裕森咖啡</a></div></li>
+            <li><a href="beans.html">咖啡處理法圖鑑</a></li><li><a href="about.html">關於我們</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="journey-hero">
+            <p class="eyebrow">GAME JOURNEY</p><h1>從一張空白展牆，<br>開始走訪嘉義。</h1>
+            <p>你是一名年輕影像創作者。為了完成「嘉義老屋咖啡的城市記憶」攝影展，你必須走進咖啡館，找到值得被留下的畫面。</p>
+            <a href="#game-flow" class="primary-btn">查看旅程流程 ↓</a>
+        </header>
+
+        <section class="role-section">
+            <div class="role-card role-card-yellow"><span class="card-index">01</span><p class="section-kicker">WHO YOU ARE</p><h2>你的身分</h2><p>一名對老物與光影有執念、對咖啡仍在入門階段的年輕影像創作者。你擅長觀察，卻還不確定什麼才是真正值得留下的城市記憶。</p></div>
+            <div class="role-card role-card-white"><span class="card-index">02</span><p class="section-kicker">WHY YOU GO</p><h2>你的目標</h2><p>走訪四間具有地方特色與故事的咖啡館，蒐集能代表每間店的照片與故事，帶回百年老洋房完成最後的攝影展。</p></div>
+        </section>
+
+        <section class="game-flow-section" id="game-flow">
+            <div class="section-heading-row"><div><p class="section-kicker">HOW TO PLAY</p><h2>一趟從探索到展出的旅程</h2></div><p class="section-note">Unity 2D 互動敘事遊戲</p></div>
+            <div class="flow-line">
+                <article><span>01</span><h3>收到展覽企劃</h3><p>老洋房裡的四個相框仍然空白，你需要出發尋找作品。</p></article>
+                <article><span>02</span><h3>選擇咖啡館</h3><p>從嘉義散策地圖選擇店家，進入各自獨立的故事關卡。</p></article>
+                <article><span>03</span><h3>探索與對話</h3><p>觀察空間痕跡、聆聽店家故事，也體驗與店家有關的咖啡互動。</p></article>
+                <article><span>04</span><h3>完成攝影任務</h3><p>拍下一張能同時說出空間「過去與現在」的代表影像。</p></article>
+                <article><span>05</span><h3>解鎖記憶卡</h3><p>把發現收進收藏冊，理解咖啡如何讓舊空間長出新的日常。</p></article>
+                <article><span>06</span><h3>回到老洋房</h3><p>照片陸續掛上展牆，最終完成《23.5°N 的回甘》影像展。</p></article>
             </div>
-        </li>
-        <li><a href="beans.html">咖啡專業知識</a></li>
-        <li><a href="about.html">關於我們</a></li>
-    </ul>
-</nav>
+        </section>
 
-    <section class="container" style="text-align: center;">
-        <h2 class="section-title">回甘小遊戲：咖啡師挑戰</h2>
-        <p style="margin-bottom: 30px; color: #7a736a;">透過互動遊戲，體驗從選豆到沖煮的職人精神。</p>
-        
-        <div style="background: #e0dcd5; width: 100%; max-width: 900px; height: 600px; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 15px; border: 2px dashed #b5ada2;">
-            <p>【 遊戲加載中... 請稍候 】</p>
-        </div>
+        <section class="core-loop-section">
+            <div><p class="section-kicker">CORE LOOP</p><h2>每間店，完成三件事</h2></div>
+            <ol class="core-loop-list">
+                <li><strong>找出空間以前是什麼</strong><span>過去用途與留下的痕跡</span></li>
+                <li><strong>理解人為什麼來到這裡</strong><span>店家的選擇，以及咖啡如何進入這個地方</span></li>
+                <li><strong>拍下一張代表照片</strong><span>讓過去與現在同時出現在畫面裡</span></li>
+            </ol>
+        </section>
 
-        <div style="margin-top: 40px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: left;">
-            <h3>如何遊玩？</h3>
-            <p>1. 使用滑鼠點擊選擇你喜愛的咖啡豆種類。<br>
-               2. 依照指示控制沖煮水溫與注水速度。<br>
-               3. 看看你能煮出幾分的回甘香氣！</p>
-        </div>
-    </section>
+        <section class="game-entry-section">
+            <p class="section-kicker">THE EXHIBITION IS WAITING</p><h2>展牆還空著。<br>準備好出發了嗎？</h2><p>遊戲目前持續開發中，可先觀看現階段的展示內容。</p>
+            <div class="hero-actions"><a href="https://youtu.be/h8jBlq4_WGY?si=8GMY3S5r19yC7ijm" target="_blank" rel="noopener" class="primary-btn">觀看開發展示 ↗</a><a href="../cafes.html" class="secondary-btn">先看咖啡館故事</a></div>
+        </section>
+    </main>
 
-    <footer><p>&copy; 2026 啡行實驗室</p></footer>
+    <footer><p>© 2026 23.5°N 的回甘</p><p>嘉義老屋咖啡的城市記憶</p></footer>
     <script>
-    /* =========================================
-   1. 手機版漢堡選單 & 職人咖啡廳收合控制
-   ========================================= */
-const mobileMenu = document.querySelector('#mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-const dropdown = document.querySelector('.dropdown');
-const dropbtn = document.querySelector('.dropbtn'); // 🌟 新增：單獨抓取大標題按鈕
-
-if (mobileMenu) {
-    // 點擊漢堡按鈕：切換選單開關
-    mobileMenu.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // 鎖定大標題按鈕
-    if (dropdown && dropbtn) {
-        dropbtn.addEventListener('click', function(e) {
-            // 當螢幕小於等於 768px (手機版) 時
-            if (window.innerWidth <= 768) {
-                
-                // 🌟 關鍵邏輯：如果選單「還沒展開」
-                if (!dropdown.classList.contains('show')) {
-                    e.preventDefault();  /* 🛑 攔截跳轉 */
-                    e.stopPropagation(); /* 🛑 阻止事件冒泡 */
-                    dropdown.classList.toggle('show'); /* 展開灰色盒子 */
-                } 
-                // 💡 如果選單「已經展開了」 (classList 裡面有 show)
-                // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
-                
-            }
-        });
-    }
-
-    // 點擊導覽連結：自動關閉選單 (優化體驗)
-    navLinks.addEventListener('click', function(e) {
-        // 如果點擊的是「職人咖啡廳大標題」本身，不需要關閉選單，直接返回
-        if (e.target.classList.contains('dropbtn')) return;
-
-        // 如果點擊的是子選單裡面的店家（鉛花、慢靈魂、裕森）或其他正常連結，則自動收起選單
-        if (mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
-}
-
-    /* =========================================
-       2. 咖啡處理法彈窗 (Modal) 控制
-       ========================================= */
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // 禁止背景滾動
-        }
-    }
-
-    function closeModal(id, event) {
-        // 阻止點擊 X 時觸發到底層的卡片點擊
-        if (event) event.stopPropagation(); 
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // 恢復背景滾動
-        }
-    }
-
-    // 點擊彈窗半透明背景處：自動關閉
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    }
-</script>
+        const mobileMenu = document.querySelector('#mobile-menu'); const navLinks = document.querySelector('.nav-links'); const dropdown = document.querySelector('.dropdown'); const dropbtn = document.querySelector('.dropbtn');
+        mobileMenu?.addEventListener('click', () => { const isOpen = mobileMenu.classList.toggle('active'); navLinks.classList.toggle('active'); mobileMenu.setAttribute('aria-expanded', String(isOpen)); });
+        dropbtn?.addEventListener('click', (event) => { if (window.innerWidth <= 768 && !dropdown.classList.contains('show')) { event.preventDefault(); dropdown.classList.add('show'); } });
+        navLinks?.addEventListener('click', (event) => { if (event.target.classList.contains('dropbtn')) return; mobileMenu?.classList.remove('active'); navLinks.classList.remove('active'); mobileMenu?.setAttribute('aria-expanded', 'false'); });
+    </script>
 </body>
 </html>

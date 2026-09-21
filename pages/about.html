@@ -12,17 +12,17 @@
     <a href="../index.html" class="logo">
         <img src="../img/logo.png" alt="Logo" class="logo-img">
         23.5°N 的回甘
-    </a> 
-    
+    </a>
+
     <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
-    
+
     <ul class="nav-links">
         <li><a href="../index.html">首頁</a></li>
-        <li><a href="game.html">遊戲介紹</a></li>
+        <li><a href="game.html">走訪旅程</a></li>
         <li class="dropdown">
             <a href="../cafes.html" class="dropbtn">職人咖啡廳 ▾</a>
             <div class="dropdown-content">
@@ -31,32 +31,32 @@
                 <a href="yusen.html">裕森咖啡</a>
             </div>
         </li>
-        <li><a href="beans.html">咖啡專業知識</a></li>
+        <li><a href="beans.html">咖啡處理法圖鑑</a></li>
         <li><a href="about.html">關於我們</a></li>
     </ul>
 </nav>
 <section class="advisor-section" style="max-width: 1200px; margin: 80px auto 40px auto; padding: 0 20px; text-align: center;">
-    
+
     <h2 class="section-title">指導教授</h2>
-    
-    <div class="advisor-card" style="display: inline-block; background: #fcfaf8; padding: 40px 60px; border-radius: 16px; box-shadow: 0 4px 20px rgba(140, 126, 109, 0.05); text-align: center;">
-        
+
+    <div class="advisor-card" style="display: inline-block; background: #FFFFFF; padding: 40px 60px; border-radius: 16px; box-shadow: 0 4px 20px rgba(255, 214, 46, 0.18); text-align: center;">
+
         <div class="advisor-avatar-box" style="width: 160px; height: 160px; margin: 0 auto 20px auto; border-radius: 50%; overflow: hidden; background-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center;">
             <img src="../img/advisor.jpg" alt="指導教授" style="width: 100%; height: 100%; object-fit: cover;" >
         </div>
-        
-        <h3 style="color: #5d4037; font-size: 1.4rem; margin: 0 0 10px 0; font-weight: 700;">黃國鴻</h3>
-        <p style="color: #8c7e6d; font-size: 1rem; margin: 0 0 15px 0; font-weight: 500; letter-spacing: 1px;">
+
+        <h3 style="color: #24231E; font-size: 1.4rem; margin: 0 0 10px 0; font-weight: 700;">黃國鴻</h3>
+        <p style="color: #24231E; font-size: 1rem; margin: 0 0 15px 0; font-weight: 500; letter-spacing: 1px;">
             國立嘉義大學 數位學習設計與管理學系
         </p>
-        
-        
-        
-        
-        
+
+
+
+
+
     </div>
-    
-    <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(215,204,200,0), rgba(215,204,200,1), rgba(215,204,200,0)); margin: 60px auto 20px auto; max-width: 600px;">
+
+    <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(255,214,46,0), rgba(255,214,46,1), rgba(255,214,46,0)); margin: 60px auto 20px auto; max-width: 600px;">
 </section>
     <section class="container">
         <h2 class="section-title">團隊成員</h2>
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <section class="container" style="background-color: #f0ede9;">
+    <section class="container" style="background-color: #FFF3A6;">
     <h2 class="section-title">聯絡我們</h2>
     <div class="contact-links" style="text-align: center;">
         <p style="margin-bottom: 25px;">有任何問題或合作意願，歡迎透過以下管道聯繫我們：</p>
@@ -129,7 +129,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 啡行實驗室</p>
+        <p>&copy; 2026 23.5°N 的回甘</p>
     </footer>
     <script>
     /* =========================================
@@ -152,16 +152,16 @@ if (mobileMenu) {
         dropbtn.addEventListener('click', function(e) {
             // 當螢幕小於等於 768px (手機版) 時
             if (window.innerWidth <= 768) {
-                
+
                 // 🌟 關鍵邏輯：如果選單「還沒展開」
                 if (!dropdown.classList.contains('show')) {
                     e.preventDefault();  /* 🛑 攔截跳轉 */
                     e.stopPropagation(); /* 🛑 阻止事件冒泡 */
                     dropdown.classList.toggle('show'); /* 展開灰色盒子 */
-                } 
+                }
                 // 💡 如果選單「已經展開了」 (classList 裡面有 show)
                 // 網頁就不會進入上面的 if，不會執行 preventDefault，第二次點擊就會直接順利跳轉到 cafes.html 囉！
-                
+
             }
         });
     }
@@ -192,7 +192,7 @@ if (mobileMenu) {
 
     function closeModal(id, event) {
         // 阻止點擊 X 時觸發到底層的卡片點擊
-        if (event) event.stopPropagation(); 
+        if (event) event.stopPropagation();
         const modal = document.getElementById(id);
         if (modal) {
             modal.style.display = "none";
