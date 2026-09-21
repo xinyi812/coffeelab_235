@@ -1417,3 +1417,136 @@ footer {
         text-align: left;
     }
 }
+
+/* ============================================================
+   15. 展覽入口頁面轉場
+   ============================================================ */
+.exhibition-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.transition-door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50.5%;
+    background-color: var(--yellow);
+    background-image:
+        linear-gradient(rgba(36, 35, 30, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 35, 30, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.transition-door::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--ink);
+}
+
+.transition-door-left {
+    left: 0;
+}
+
+.transition-door-left::after {
+    right: 0;
+}
+
+.transition-door-right {
+    right: 0;
+}
+
+.transition-door-right::after {
+    left: 0;
+}
+
+.transition-copy {
+    position: relative;
+    z-index: 2;
+    width: min(84vw, 560px);
+    padding: 32px;
+    text-align: center;
+    color: var(--ink);
+    transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.transition-logo {
+    display: block;
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.8rem, 8vw, 5.4rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.transition-message {
+    margin: 22px 0 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.transition-line {
+    display: block;
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+    background: rgba(36, 35, 30, 0.18);
+}
+
+.transition-line::after {
+    content: "";
+    display: block;
+    width: 42%;
+    height: 100%;
+    background: var(--ink);
+    animation: exhibition-loading 1s ease-in-out infinite;
+}
+
+body.page-ready .transition-door-left {
+    transform: translateX(-101%);
+}
+
+body.page-ready .transition-door-right {
+    transform: translateX(101%);
+}
+
+body.page-ready .transition-copy {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+body.page-ready .exhibition-transition {
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s 0.85s;
+}
+
+body.page-leaving .exhibition-transition {
+    visibility: visible;
+    pointer-events: all;
+    transition-delay: 0s;
+}
+
+@keyframes exhibition-loading {
+    from { transform: translateX(-110%); }
+    to { transform: translateX(350%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .transition-door,
+    .transition-copy,
+    .transition-line::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

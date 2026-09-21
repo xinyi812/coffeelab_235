@@ -1,0 +1,49 @@
+(function () {
+    const overlay = document.createElement('div');
+    overlay.className = 'exhibition-transition';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = `
+        <div class="transition-door transition-door-left"></div>
+        <div class="transition-door transition-door-right"></div>
+        <div class="transition-copy">
+            <span class="transition-logo">23.5°N</span>
+            <p class="transition-message">歡迎走進《23.5°N 的回甘》</p>
+            <span class="transition-line"></span>
+        </div>
+    `;
+    document.body.prepend(overlay);
+
+    const message = overlay.querySelector('.transition-message');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function revealPage() {
+        window.setTimeout(() => document.body.classList.add('page-ready'), reduceMotion ? 0 : 220);
+    }
+
+    window.addEventListener('load', revealPage);
+    window.addEventListener('pageshow', revealPage);
+
+    document.addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (!link || event.defaultPrevented) return;
+
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        if (link.target === '_blank' || link.hasAttribute('download')) return;
+
+        const destination = new URL(link.href, window.location.href);
+        if (destination.origin !== window.location.origin) return;
+        if (destination.href === window.location.href) return;
+
+        event.preventDefault();
+
+        const label = link.textContent.replace('▾', '').trim();
+        message.textContent = label ? `正在前往｜${label}` : '正在前往下一個展區';
+        document.body.classList.remove('page-ready');
+        document.body.classList.add('page-leaving');
+
+        window.setTimeout(() => {
+            window.location.href = destination.href;
+        }, reduceMotion ? 0 : 850);
+    });
+})();
