@@ -55,16 +55,16 @@ nav {
 
 /* Logo 連結區域 */
 .logo {
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif;
     font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 2px;
     color: var(--ink);
-    text-decoration: none !important; /* !important 確保底線在任何分頁都不會出現 */
+    text-decoration: none !important;
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .logo:hover {
     color: var(--ink);
     text-decoration: none !important;
